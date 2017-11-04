@@ -1,0 +1,51 @@
+.nivel-content
+	section.portada1
+		.loading-content(ng-if="!portadas")
+			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas")
+		img(src="{{portadas[0].imagen}}" ng-if="portadas")
+	section.info(layout="row" layout-align="center center")
+		.info-container(flex="80" flex-md="90" flex-sm="90" flex-xs="100" layout="column")
+			.descripcion.md-padding
+				.descripcion-content {{nivel.descripcion}}
+			.info-content(layout="row" flex)
+				.contenido.md-padding(flex="50")
+					.loading-content(ng-if="!nivel")
+						md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="nivel" ng-if="!nivel")
+					.panel(ng-if="nivel")
+						md-expansion-panel(md-component-id="panelOne" ng-repeat="elemento in nivel.elementos")
+							md-expansion-panel-collapsed(style="background-color: {{nivel.colorbajo}}")
+								.md-title {{elemento.nombre}}
+								.md-summary
+								md-expansion-panel-icon
+							md-expansion-panel-expanded
+								md-expansion-panel-header {{elemento.nombre}}
+								md-expansion-panel-content {{elemento.descripcion}}
+								md-expansion-panel-footer
+									md-button(ng-click="$panel.collapse()")
+										md-icon keyboard_arrow_up
+				.formulario.md-padding(flex="50")
+					h1 Contactanos
+					form(layout="column")
+						md-input-container(flex)
+							label Nombre
+							input
+						md-input-container(flex)
+							label E-mail
+							input
+						md-input-container(flex)
+							label Mensaje
+							textarea(ng-model="formulario.mensaje" md-maxlength="150" rows="5")
+						md-button(type="submit")
+							| Enviar
+	section.portada2
+		.loading-content(ng-if="!portadas")
+			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas" ng-if="!portadas")
+		img(src="{{portadas[1].imagen}}" ng-if="portadas")
+	section
+		.titulo
+			h1 Direccion
+		br
+		P Calle 5 de mayo Num .606 Entre Pedro J. Mendez y Rivas Guillen Col.
+		P Ampliacion de la Unidad Nacional, Cd. Madero, Tam.
+		p TEL GEM OFICINA. (833) 2151398 TEL. GEMi KINDER. (833) 126 5637.
+		br

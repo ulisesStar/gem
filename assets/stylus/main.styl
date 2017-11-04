@@ -1,0 +1,270 @@
+primario = #1c2852
+morado = #49296b
+gris = #95989A
+azul = #0a0e3a
+rojo = #d10000
+naranja = #eb6a23
+verde = #51b83e
+
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
+animation(animation, duration = 1s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all duration ease-in-out
+    -moz-transition all duration ease-in-out
+    -o-transition all duration ease-in-out
+    transition all duration ease-in-out
+
+.rojo
+    background-color rojo
+
+.morado
+    background-color morado
+
+.naranja
+    background-color naranja
+
+.azul
+    background-color azul
+
+.verde
+    background-color verde
+
+header
+    position fixed
+    z-index 10
+    width 100%
+    height 60px
+    background-color white
+    .logo-container
+        display flex
+        img
+            height 30px
+            margin auto
+    .menu
+        md-menu-bar
+            padding 0px
+            .md-button
+                height 100%
+                padding 13px 10
+                border-radius 0px
+                text-transform lowercase
+                color black
+                margin 0px
+                border-right 1px solid #D3D3D3
+                &:last-child
+                    border-right none
+
+.nivel-content
+    section
+        &.portada1, &.portada2
+            .loading-content
+                min-height 400px
+                display flex
+                md-progress-circular
+                    margin auto
+            img
+                width 100%
+                height auto
+
+        &.info
+            .contenido
+                display flex
+                .loading-content
+                    margin auto
+                    display flex
+                        md-progress-circular
+                            margin auto
+                .panel
+                    width 100%
+                    md-expansion-panel
+                        md-expansion-panel-collapsed
+                            .md-title
+                                color white
+                                font-size 12px
+                            .md-expansion-panel-icon
+                                svg
+                                    fill white
+                        md-expansion-panel-expanded
+                            md-expansion-panel-footer
+                                padding 0px
+                                .md-button
+                                    padding 0px
+                                    margin 0px
+                                    width 100%
+
+
+.imagen-container
+    display flex
+
+    img
+        margin auto
+
+.imagen-footer
+    display flex
+    width 100%
+    height 55%
+    img
+        margin auto
+
+.home
+    top 0px
+    transition(500ms, 0)
+    .home-container
+        height calc(100vh - 100px)
+        width 100vw
+        background-size cover
+        background-position center center
+        padding-top 100px
+        overflow hidden
+        transition(500ms, 0)
+        .home-content
+            transition(500ms, 0)
+            .logo-container
+                width 100%
+                display flex
+                img
+                    height 100px
+                    margin auto
+        .back
+            .md-button
+                background-color white
+                md-icon
+                    color primario
+        .niveles
+            height calc(100vh - 200px)
+            md-grid-list
+                padding-bottom 0px !important
+                height calc(100vh - 200px)
+                md-grid-tile
+                    cursor pointer
+                    transition(500ms, 0)
+                    &.conHover
+                        img
+                            height 90%
+                            padding 5%
+                            transition(500ms, 0)
+
+                    &.sinHover
+                        img
+                            height 60%
+                            padding 10%
+        .siguiente
+            height 50px
+            width 100%
+            display flex
+            md-icon
+                margin auto
+                transform scale(2)
+                color white
+
+    h1, h4
+        text-align center
+
+
+
+.titulo
+    height 60px
+    width 600px
+    background-color rgba(85, 49, 107, 1)
+    h1
+        font-family open-sans, sans-serif
+        color white
+.md-list-item
+    height 40px
+    width 600px
+    background-color rgba(85, 49, 107, 1)
+    h4
+        font-family open-sans, sans-serif
+        color white
+
+.info
+    display flex
+    md-grid-list
+        md-grid-tile
+            img
+                height 80%
+                padding 10%
+
+.ingles-content
+    section
+        &.portada1
+            img
+                width 100%
+                height auto
+                margin-top 5%
+        &.logo
+            width 100%
+            display flex
+            img
+                height 150px
+                margin auto
+                margin-top 10%
+
+section.imagenes
+    margin-top: -13%;
+    height 100vh
+    .imagenes-container
+        position relative
+        .imagenes-content
+            position relative
+            section
+                &.fotoizquierda
+                    float left
+                    position relative
+                    img
+                        height 150px
+                        display inline
+                        display block
+                        margin 0 auto
+                        float left
+                    p
+                        font-weight bold
+                        font-size 18px
+                        margin-top 15%
+                        margin-right: 70px;
+
+
+                &.fotoderecha
+                    margin-right 0px
+                    img
+                        height 150px
+                        display inline
+                        display block
+                        margin 0 auto
+                        float right
+                    p
+                        text-align center
+                        font-weight bold
+                        font-size 18px
+                        margin-top 15%
+                        margin-left 45%
+
+section.infoConocenos
+    margin-top: -23%;
+    p
+        margin-top -12px
+
+section.inscripciones
+    .inscripciones-container
+        .inscripciones-content
+            margin-top 12%
+            h4
+                font-size 18px
+            p
+                margin-top -12px
+        .info
+            margin-top 7%
+            md-grid-list
+                margin-left -20%
+        .info1
+            margin-left -10%
+            margin-top -14%
+        .info2
+            margin-left -10%
+            margin-top -20%

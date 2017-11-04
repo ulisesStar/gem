@@ -1,0 +1,97 @@
+.nivel(layout="row" layout-align="center center")
+    div(flex="100")
+        section
+            md-card
+                form(ng-submit="editarNivel(nivel)" layout="column")
+                    div(layout="row")
+                        md-input-container(flex)
+                            label Nombre
+                            input(ng-model="nivel.nombre" required)
+                        md-input-container(flex)
+                            label Direccion
+                            input(ng-model="nivel.direccion" required)
+                    div(layout="row")
+                        md-input-container(flex)
+                            label Inscripcion
+                            input(ng-model="nivel.inscripcion" required)
+                        md-input-container(flex)
+                            label Colegiatura
+                            input(ng-model="nivel.colegiatura" required)
+                    md-input-container
+                        label Descripcion
+                        textarea(ng-model="nivel.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                    md-button.large(type="submit" md-colors="{background: 'green'}" flex)
+                        md-icon save
+        section
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h4 Elementos
+                        span(flex)
+                        md-button(ng-click="aparecer = !aparecer")
+                            md-icon add
+                            | Nuevo
+                form(ng-if="aparecer" ng-submit="submitElemento(elemento)")
+                    .Elementos(layout="column")
+                        md-input-container(flex)
+                            label Nombre
+                            input(ng-model="elemento.nombre" required)
+                        md-input-container(flex)
+                            label Descripcion
+                            textarea(ng-model="elemento.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                    .botonesElementos(layout="row")
+                        md-button(type="submit" md-colors="{background: 'green'}" flex)
+                            md-icon save
+                        md-button(ng-click="limpiar()" md-colors="{background: 'red'}" flex)
+                            md-icon clear
+                md-divider
+                md-list
+                    md-list-item(ng-repeat="elemento in elementos")
+                        .md-list-item-text
+                            strong {{elemento.nombre}}
+                        md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                            md-fab-trigger
+                                md-button
+                                    md-icon more_vert
+                            md-toolbar
+                                md-fab-actions(layout="row")
+                                    md-button(md-colors="{background: 'green'}" ng-click="focusElemento(elemento)")
+                                        md-icon edit
+                                    md-button(md-colors="{background: 'red'}" ng-click="eliminarElemento(elemento,$index)")
+                                        md-icon clear
+                        md-divider
+        section
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h4 Imagenes
+                        span(flex)
+                        md-button(ng-click="mostrar =! mostrar")
+                            md-icon add
+                            | Agregar
+                div(ng-if="mostrar && !opciones")
+                    md-checkbox(ng-click="seleccionar('logo')") Logo
+                    md-checkbox(ng-click="seleccionar('portada1')") Portada 1
+                    md-checkbox(ng-click="seleccionar('portada2')") Portada 2
+                form(ng-if="opciones" ng-submit="crearImagen(foto)")
+                    .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+                        input.dropify(type="file" data-default-file="Imagen del Nivel" ng-model="foto.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                    .croppie-container(flex ng-show="inputImage")
+                        ng-croppie(src="inputImage"
+                            ng-model='foto.imagen'
+                            boundry="opciones.boundry"
+                            viewport="opciones.viewport"
+                            mousezoom="true" 
+                            zoom="true" 
+                            orientation="90"
+                            type="rectangle") 
+                    md-button.large(type="submit" md-colors="{background: 'green'}" flex)
+                        md-icon save
+                md-grid-list(md-cols="3" md-row-height="200px")
+                    md-grid-tile(md-colspan="1" md-rowspan="1"  style="background-image:url({{nivel.logo.imagen}})")
+                        md-grid-tile-footer(layout-align="center center")
+                            p Logo
+                    md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="portada in niveles.portadas" style="background-image:url({{portada.imagen}})")
+                        md-grid-tile-footer(layout-align="center center")
+                            md-button(ng-click="eliminarImagen($index, imagen.id)")
+                                md-icon clear

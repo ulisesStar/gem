@@ -1,0 +1,60 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        md-card
+            md-toolbar
+                .md-toolbar-tools
+                    h4 Elementos
+                    span(flex)
+                    md-button(ng-click="aparecer=!aparecer")
+                        md-icon add
+                        |Nuevo
+            form(ng-if="aparecer" ng-submit="submitElemento(elemento)")
+                .Elementos(layout="column")
+                    md-input-container(flex)
+                        label Nombre
+                        input(ng-model="elemento.nombre")
+                    md-input-container(flex)
+                        label Descripcion
+                        textarea(ng-model="elemento.descripcion" md-maxlength="500" rows="4" md-select-on-focus required)
+                .botonesElementos(layout="row")
+                    md-button(type="submit" md-colors="{background: 'green'}" flex)
+                        md-icon save
+                    md-button(ng-click="limpiar()" md-colors="{background: 'red'}" flex)
+                        md-icon clear
+            md-divider
+            md-list
+                md-list-item(ng-repeat="elemento in elementos")
+                    .md-list-item-text
+                        strong {{elemento.nombre}}
+                    md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                        md-fab-trigger
+                            md-button
+                                md-icon more_vert
+                        md-toolbar
+                            md-fab-actions(layout="row")
+                                md-button(md-colors="{background: 'green'}" ng-click="focusElemento(elemento)")
+                                    md-icon edit
+                                md-button(md-colors="{background: 'red'}" ng-click="eliminarElemento(elemento,$index)")
+                                    md-icon clear
+                    md-divider
+            md-card
+            md-toolbar
+                .md-toolbar-tools
+                    h4 Imagenes
+                    span(flex)
+                    md-button(ng-click="mostrar=!mostrar")
+                        md-icon add
+            form(ng-if="mostrar")
+                .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+                    input.dropify(type="file" data-default-file="Imagen del Nivel" ng-model="foto.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                .croppie-container(flex ng-show="inputImage")
+                    ng-croppie(src="inputImage"
+                        ng-model='foto.imagen'
+                        boundry="{ w: 300, h: 300 }"
+                        viewport="{w: 200, h: 200}"
+                        mousezoom="true" 
+                        zoom="true" 
+                        orientation="90"
+                        type="rectangle") 
+                md-button.large(type="submit" md-colors="{background: 'green'}" flex)
+                    md-icon save

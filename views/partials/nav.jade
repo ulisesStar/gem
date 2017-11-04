@@ -1,12 +1,16 @@
-md-card(layout="row" layout-align="center center")
-	md-card-content
-		md-icon(md-colors="{color: 'cyan'}") star
+.header-content(flex="70" flex-md="80" flex-sm="80" flex-xs="100" layout="row")
+	.logo-container
+		img(src="img/logo.png")
 	span(flex)
-	//- Resolución completa
-	div.menu
+	.menu
 		md-menu-bar(hide-xs)
-			md-button(class="navbutton" ng-repeat="boton in botones" md-colors="{background: '{{boton.color}}'}" ui-sref="{{boton.sref}}")
-				md-icon(class="material-icons") {{boton.icon}}
+			md-button.navbutton(ui-sref="home") Inicio
+			md-button.navbutton(ui-sref="conocenos") Conocenos
+			md-button.navbutton(ui-sref="home.nivel") Niveles de estudio
+			md-button.navbutton(ui-sref="ingles") Inglés acierto
+			md-button.navbutton(ui-sref="inscripciones") Inscripciones
+			md-button.navbutton Plataforma
+				
 		//- Resolución mobil
 		md-menu-bar(hide-gt-xs)
 			md-menu
@@ -16,7 +20,5 @@ md-card(layout="row" layout-align="center center")
 					md-menu-item(ng-repeat="boton in botones")
 						md-button(class="navbutton" md-colors="{background: '{{boton.color}}'}" ui-sref="{{boton.sref}}") {{boton.title}}
 							md-icon(class="material-icons") {{boton.icon}}
-		md-button(ng-click="iniciosesion($event)" md-colors="{background: 'cyan'}")
-			md-icon settings
-
-		
+		//- md-button(ng-click="logOut()" md-colors="{background: 'red'}")
+		//- 	md-icon clear

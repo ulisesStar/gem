@@ -1,0 +1,29 @@
+.eventos(layout="row" layout-align="center center")
+	div(flex="100")
+		section.md-padding
+			md-card-content(layout="row")
+				md-autocomplete(
+				flex
+				md-selected-item="ctrl.selectedEvento" 
+				md-search-text-change="ctrl.BuscarEventoChange(ctrl.searchTextEvento)" 
+				md-search-text="ctrl.searchTextEvento" 
+				md-selected-item-change="ctrl.EventoSeleccionadoChange(item)" 
+				md-items="item in eventos" 
+				md-item-text="item.nombre" 
+				md-min-length="0" 
+				placeholder="Buscar por el nombre del Evento" 
+				md-menu-class="autocomplete-custom-template")
+					md-item-template
+						span {{item.nombre}}
+				md-button(md-colors="{background: 'green'}" ng-click="EventoDialog()")
+					md-icon add
+		md-card
+			md-toolbar
+				.md-toolbar-tools
+					h4 Eventos 
+			md-divider
+			md-list
+				md-list-item.md-2-line(ng-repeat="evento in eventos | filter: ctrl.searchTextEvento" ui-sref="evento({idEvento:evento.id})")
+					.md-list-item-text
+						p {{evento.nombre}}
+					md-divider

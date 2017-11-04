@@ -1,0 +1,18 @@
+form {
+  width: 100%;
+  margin: 0px;
+}
+form .dropify-wrapper {
+  padding: 0px;
+  margin: 0px;
+}
+form .croppie-container {
+  max-height: 40%;
+}
+.croppie-container {
+  max-height: 40%;
+}
+.home h1,
+.home h4 {
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+md-dialog.nuevoevento(style="width:60vw;")
+    md-toolbar
+        .md-toolbar-tools
+            h4 Nuevo Evento
+    .infoEventos(layout="column")
+        form(ng-submit="submitEvento(evento)")
+            .formulario-container(layout="column")
+                md-input-container(flex)
+                    label Niveles
+                    md-select(ng-model="evento.idNivel" required)
+                        md-option(ng-value="nivel.id" ng-repeat="nivel in niveles") {{nivel.nombre}}
+                md-input-container(flex)
+                    label Nombre
+                    input(ng-model="evento.nombre" required)
+                md-input-container(flex)
+                    label Descripcion
+                    textarea(ng-model="evento.descripcion" md-maxlength="500" rows="4" md-select-on-focus required)
+                .botonesEventos(layout="row")
+                    md-button(type="submit" flex)
+                        md-icon save
+                    md-button(ng-click="close()" flex)
+                        md-icon clear

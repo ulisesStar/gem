@@ -4,21 +4,40 @@ var conector = require('./connection');
 
 //- Modelos
 
-var persona = require('./db/modeloPersona')(conector);
-var imagen = require('./db/modeloImagen')(conector);
-var interes = require('./db/modeloInteres')(conector);
-var personainteres = require('./db/modeloPersonaInteres')(conector);
 var usuario = require('./db/modeloUsuario')(conector);
+var elementos = require('./db/modeloElementos')(conector);
+var eventos = require('./db/modeloEventos')(conector);
+var imagenes = require('./db/modeloImagenes')(conector);
+var niveles = require('./db/modeloNiveles')(conector);
+var album = require('./db/modeloAlbum')(conector);
+var fotos = require('./db/modeloFotos')(conector);
+var portadas = require('./db/modeloPortadas')(conector);
+var logo = require('./db/modeloLogo')(conector);
+
 
 //- Relations
 
-persona.hasMany(imagen, {foreignKey: 'IdPersona', targetKey: 'id'});
+niveles.hasMany(eventos , {foreignKey: 'idNivel'});
+eventos.belongsTo(niveles, {foreignKey: 'idNivel'});
 
-interes.belongsToMany(persona, {through: personainteres, foreignKey: 'IdInteres'});
-persona.belongsToMany(interes, {through: personainteres, foreignKey: 'IdPersona'});
+elementos.belongsTo(niveles, {foreignKey: 'idNivel'});
+niveles.hasMany(elementos, {foreignKey: 'idNivel'});
 
-module.exports.persona = persona;
-module.exports.imagen = imagen;
-module.exports.interes = interes;
-module.exports.personainteres = personainteres;
+portadas.belongsTo(niveles, {foreignKey: 'idNivel'});
+niveles.hasMany(portadas, {foreignKey: 'idNivel'});
+
+imagenes.belongsTo(eventos , {foreignKey: 'idEvento'});
+eventos.hasMany(imagenes , {foreignKey: 'idEvento'});
+
+logo.belongsTo(niveles, {foreignKey: 'idNivel'});
+niveles.hasOne(logo, {foreignKey: 'idNivel'});
+
 module.exports.usuario = usuario;
+module.exports.elementos = elementos;
+module.exports.eventos = eventos;
+module.exports.imagenes = imagenes;
+module.exports.niveles = niveles;
+module.exports.album = album;
+module.exports.fotos = fotos;
+module.exports.portadas = portadas;
+module.exports.logo = logo;

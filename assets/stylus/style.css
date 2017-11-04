@@ -1,0 +1,19 @@
+.centro {
+  min-height: "calc(100vh - 150px)";
+}
+md-dialog {
+  width: 50vw;
+}
+.layout-row>div {
+  max-height: inherit !important;
+}
+.centro {
+  min-height: calc(100vh - 100px);
+}
+footer {
+  background-color: #000;
+}
+footer md-icon {
+  height: 106px;
+  width: 180px;
+}

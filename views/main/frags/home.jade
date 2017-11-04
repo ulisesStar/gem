@@ -1,18 +1,16 @@
-.objeto(tweeninit)
-.animacion(layout="row" layout-align="center center" botones)
-    .texto-container
-        .texto
-            #texto1
-                h1 La primera impresión se da a los 4 segundos
-        .texto
-            #texto2
-                h1 En una página de internet es igual
-        .texto
-            #texto3
-                h1 Nuestas páginas web hechas a medida de cada cliente
-        .texto
-            #texto4
-                h1 y estan optimizadas para atraer clientes que buscan lo que ofreces
-        .texto
-            #texto5
-                h1 Como tu que buscabas una página de internet
+.home(ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 71}) , 'azul' : $state.includes('home.nivel', {id: 81}) , 'verde' : $state.includes('home.nivel', {id: 91})} ")
+	.home-container(style="background-image:url(img/portada.svg)")
+		.home-content(layout="column" ng-hide="$state.includes('home.nivel')")
+			.logo-container
+				img(src="img/logo.png")
+		//- .back(ng-show="$state.includes('home.nivel')" ui-sref="home")
+		//- 	md-button
+		//- 		md-icon backspace
+		.niveles(layout="row" layout-align="center center")
+			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="loadingniveles" ng-if="loadingniveles")
+			md-grid-list(md-cols="3" md-row-height="1:1" flex="70" flex-md="70" flex-sm="70" flex-xs="100" ng-if="!loadingniveles")
+				md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1" ng-click="selecionar(nivel)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
+					img(src="{{nivel.logo.imagen}}")
+		.siguiente(ng-if="$state.includes('home.nivel') ")
+			md-icon keyboard_arrow_down
+.nivel(ui-view="main")

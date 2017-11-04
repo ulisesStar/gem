@@ -1,0 +1,47 @@
+.nivel(layout="row" layout-align="center center")
+    div(flex="100")
+        section
+            md-card
+                form(ng-submit="editarEvento(evento)")
+                    .formulario-container(layout="column")
+                        md-input-container(flex)
+                            label Niveles
+                            md-select(ng-model="evento.idNivel" required)
+                                md-option(ng-value="nivel.id" ng-repeat="nivel in niveles") {{nivel.nombre}}
+                        md-input-container(flex)
+                            label Nombre
+                            input(ng-model="evento.nombre" required)
+                        md-input-container(flex)
+                            label Descripcion
+                            textarea(ng-model="evento.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                        .botonesEventos(layout="row")
+                            md-button(type="submit" md-colors="{background: 'green'}" flex)
+                                md-icon save
+        section
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h4 Imagenes
+                md-grid-list(md-cols="4" md-row-height="200px")
+                    md-grid-tile(md-colspan="2" md-rowspan="2")
+                        form(ng-submit="crearImagen(foto)") 
+                            .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+                                input.dropify(type="file" data-default-file="Imagen de la imagenes" ng-model="foto.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                            .croppie-container(flex ng-show="inputImage")
+                                ng-croppie(src="inputImage"
+                                    ng-model='foto.imagen'
+                                    update='onUpdate'
+                                    boundry="{ w: 300, h: 300 }"
+                                    viewport="{w: 300, h: 300}"
+                                    mousezoom="true" 
+                                    zoom="true" 
+                                    orientation="90"
+                                    type="square") 
+                            md-button(md-colors="{background: 'green'}" type="submit")
+                                md-icon save
+                    md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in imagenes" style="background-image:url({{imagen.imagen}})")
+                        md-grid-tile-footer(layout-align="center center")
+                            md-button(ng-click="eliminarImagen($index, imagen.id)")
+                                md-icon clear
+                            //- md-button(ng-click="cambiarPortada(imagen.id)" md-colors="imagen.portada === 1 ? {background:'green'} : {background:'red'}")
+                            //-     md-icon photo
