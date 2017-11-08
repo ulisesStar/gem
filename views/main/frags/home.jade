@@ -1,6 +1,6 @@
 .home(ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 53}) , 'azul' : $state.includes('home.nivel', {id: 52}) , 'verde' : $state.includes('home.nivel', {id: 91})} ")
 	.home-container(style="background-image:url(img/portada.svg)")
-		.home-content(layout="column" ng-hide="$state.includes('home.nivel')")
+		.home-content(layout="column" ng-hide="$state.includes('home.nivel')" hide-xs hide-sm)
 			.logo-container
 				img(src="img/logo.png")
 		//- .back(ng-show="$state.includes('home.nivel')" ui-sref="home")
