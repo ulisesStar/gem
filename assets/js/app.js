@@ -9,12 +9,16 @@ var app = angular.module('myapp', [
     'uiGmapgoogle-maps',
     'ngCroppie',
     'material.components.expansionPanels',
-    'textAngular'
+    'textAngular',
+    'angular-timeline'
 ]);
 
 //TEMAS
-app.config(function($mdThemingProvider) {
+app.config(function($mdThemingProvider, $mdIconProvider) {
     $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('blue').warnPalette('red').backgroundPalette('grey');
+
+    $mdIconProvider
+       .iconSet('fb', 'img/icons/fb.svg', 24);
 });
 
 app.run(function($rootScope, $transitions, $timeout) {
@@ -28,6 +32,7 @@ app.run(function($rootScope, $transitions, $timeout) {
         $rootScope.loading = false;
     });
 })
+
 
 app.service('mdDialog', function ($mdDialog) {
 

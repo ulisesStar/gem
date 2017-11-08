@@ -1,0 +1,16 @@
+.vidaestudiantil
+    div(layout="row" layout-align="center center")
+        div(flex="80" flex-md="90" flex-sm="90" flex-xs="100")
+            h1 vida estudiantil
+            timeline
+                timeline-event(ng-repeat="event in events" side="{{event.side}}")
+                    timeline-badge(class="{{event.clase}}")
+                        md-icon {{event.icon}}
+                    timeline-panel
+                        timeline-heading
+                            h4 {{event.title}}
+                        .timeline-content(layout="row")
+                            img(src="{{event.imagen}}")
+                            .md-padding(flex)
+                                p {{event.content}}
+                            

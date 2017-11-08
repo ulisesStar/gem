@@ -54,5 +54,7 @@ app.config([
         .state('inscripciones', template('/inscripciones', '/main/inscripciones', 'inscripcionesCtrl', 'ozMainInscripciones'))
         .state('ingles',pequenin('/ingles', '/main/ingles'))
         .state('home.nivel', template('nivel/:id', '/main/nivel', 'nivelCtrl', 'ozMainNivel', { 'id' : null}))
+
+        .state('vidaestudiantil', template('/vidaestudiantil', '/main/vidaestudiantil', 'vidaCtrl', 'ozVidaEstudiantil'))
     }
 ]);

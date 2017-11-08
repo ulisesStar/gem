@@ -90,6 +90,9 @@ header
                 background-color azul
                 color white
 
+.vidaestudiantil
+    margin-top 100px
+
 .nivel-content
     section
         &.portada1, &.portada2
@@ -362,3 +365,22 @@ header
                     p, h4
                         text-align center
                         margin 3px 0
+
+timeline
+    timeline-event
+        timeline-badge
+            &.facebook
+                background-color #3c5a99
+            &.evento
+                background-color rojo
+            md-icon
+                margin 13px
+                transform scale(1.3)
+                color white
+        timeline-panel
+            .timeline-content
+                img
+                    @media compu
+                        height 200px
+                    @media mobile
+                        height 100px

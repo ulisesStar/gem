@@ -54,6 +54,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 			{
 				name: 'ozUserHome',
 				files: ['js/user/frags/home.js']
+			},
+            {
+				name: 'ozVidaEstudiantil',
+				files: ['js/main/frags/vidaestudiantil.js']
 			}
         ]
     });

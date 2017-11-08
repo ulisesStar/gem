@@ -27,7 +27,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
     function todotrue(){
         _.forEach($scope.niveles, function(n, key){
             console.log(n);
-
             n.activo = true;
         });
     }
@@ -35,7 +34,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
     $scope.selecionar = function(nivel){
 
         $state.go('home.nivel', {id: nivel.id})
-
 
         _.forEach($scope.niveles, function(n, key){
             console.log(n);
