@@ -1,7 +1,7 @@
 div(layout="row" layout-align="center center")
     div(flex="80")
-        .niveles
-            md-card-content(layout="row")
+        md-card
+            .md-padding(layout="row")
                 md-autocomplete(
                 flex
                 md-selected-item="ctrl.selectedNivel" 
@@ -17,10 +17,8 @@ div(layout="row" layout-align="center center")
                         span {{item.nombre}}
                 md-button(md-colors="{background: 'green'}" ui-sref="nuevoNivel")
                     md-icon school
-        md-card
-            md-toolbar
-                .md-toolbar-tools
-                    h4 Niveles 
+            md-card-content
+            md-divider
             md-list
                 md-list-item.md-2-line(ng-repeat="nivel in niveles | filter: ctrl.searchTextNivel" ui-sref="nivel({idNivel:nivel.id})")
                     .md-list-item-text

@@ -15,3 +15,29 @@ footer
     md-icon
         height 106px
         width 180px
+
+.ta-toolbar
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    .ta-button-group
+        display flex
+        flex-direction row
+        flex-wrap wrap
+        button
+            min-width 0
+            min-height 0
+            line-height normal
+            margin-left 0
+            color black
+            md-icon
+                color rgb(33,150,243)
+        &.active
+            background-color rgb(33,150,243)
+
+.ta-text-editor
+    .ta-bind
+        border-bottom 1px solid rgb(33,150,243)
+        &:focus
+            border-bottom 2px solid rgb(33,150,243)
+            outline none

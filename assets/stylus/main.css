@@ -1,3 +1,12 @@
+md-menu.md-open .md-button {
+  background-color: #0a0e3a;
+}
+md-menu.md-open .md-button md-icon {
+  color: #fff;
+}
+h2 {
+  color: #0a0e3a;
+}
 .rojo {
   background-color: #d10000;
 }
@@ -22,6 +31,7 @@ header {
 }
 header .logo-container {
   display: flex;
+  margin: auto 10px;
 }
 header .logo-container img {
   height: 30px;
@@ -42,6 +52,10 @@ header .menu md-menu-bar .md-button {
 header .menu md-menu-bar .md-button:last-child {
   border-right: none;
 }
+header .menu md-menu-bar .md-button.active {
+  background-color: #0a0e3a;
+  color: #fff;
+}
 .nivel-content section.portada1 .loading-content,
 .nivel-content section.portada2 .loading-content {
   min-height: 400px;
@@ -56,8 +70,15 @@ header .menu md-menu-bar .md-button:last-child {
   width: 100%;
   height: auto;
 }
+.nivel-content section.portada2 {
+  margin: 100px 0;
+}
+.nivel-content section.info .descripcion .descripcion-content {
+  margin: 150px 0;
+}
 .nivel-content section.info .contenido {
   display: flex;
+  padding: 0 40px;
 }
 .nivel-content section.info .contenido .loading-content {
   margin: auto;
@@ -71,17 +92,120 @@ header .menu md-menu-bar .md-button:last-child {
 .nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-collapsed .md-title {
   color: #fff;
   font-size: 12px;
+  max-width: 100%;
+  width: 100%;
+}
+.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-collapsed .md-expansion-panel-icon {
+  margin: 20px 0px;
 }
 .nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-collapsed .md-expansion-panel-icon svg {
   fill: #fff;
 }
-.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer {
+.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content li {
+  margin: 20px 0;
+}
+.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content li:before {
+  content: "<h1>6 Businesses Found <span class=" headingDetail ">(view all)</span></h1>";
+}
+.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container {
   padding: 0px;
 }
-.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-button {
+.nivel-content section.info .contenido .panel md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container .md-button {
   padding: 0px;
   margin: 0px;
   width: 100%;
+}
+.nivel-content section.info .formulario {
+  background-color: inherit !important;
+}
+.nivel-content section.info .formulario md-card {
+  margin: 0px;
+}
+.nivel-content section.info .formulario md-card md-toolbar md-icon {
+  margin: 0 20px;
+}
+.nivel-content section.info .formulario.rojo md-toolbar {
+  background-color: #d10000;
+}
+.nivel-content section.info .formulario.rojo h1 md-icon {
+  color: #d10000;
+}
+.nivel-content section.info .formulario.rojo label {
+  color: #d10000;
+}
+.nivel-content section.info .formulario.rojo input {
+  border-color: #d10000;
+}
+.nivel-content section.info .formulario.rojo textarea {
+  border-color: #d10000;
+}
+.nivel-content section.info .formulario.naranja md-toolbar {
+  background-color: #eb6a23;
+}
+.nivel-content section.info .formulario.naranja h1 md-icon {
+  color: #eb6a23;
+}
+.nivel-content section.info .formulario.naranja label {
+  color: #eb6a23;
+}
+.nivel-content section.info .formulario.naranja input {
+  border-color: #eb6a23;
+}
+.nivel-content section.info .formulario.naranja textarea {
+  border-color: #eb6a23;
+}
+.nivel-content section.info .formulario.morado md-toolbar {
+  background-color: #49296b;
+}
+.nivel-content section.info .formulario.morado h1 md-icon {
+  color: #49296b;
+}
+.nivel-content section.info .formulario.morado label {
+  color: #49296b;
+}
+.nivel-content section.info .formulario.morado input {
+  border-color: #49296b;
+}
+.nivel-content section.info .formulario.morado textarea {
+  border-color: #49296b;
+}
+.nivel-content section.info .formulario.verde md-toolbar {
+  background-color: #51b83e;
+}
+.nivel-content section.info .formulario.verde h1 md-icon {
+  color: #51b83e;
+}
+.nivel-content section.info .formulario.verde label {
+  color: #51b83e;
+}
+.nivel-content section.info .formulario.verde input {
+  border-color: #51b83e;
+}
+.nivel-content section.info .formulario.verde textarea {
+  border-color: #51b83e;
+}
+.nivel-content section.info .formulario.azul md-toolbar {
+  background-color: #0a0e3a;
+}
+.nivel-content section.info .formulario.azul h1 md-icon {
+  color: #0a0e3a;
+}
+.nivel-content section.info .formulario.azul label {
+  color: #0a0e3a;
+}
+.nivel-content section.info .formulario.azul input {
+  border-color: #0a0e3a;
+}
+.nivel-content section.info .formulario.azul textarea {
+  border-color: #0a0e3a;
+}
+.nivel-content section.direccion {
+  width: 100%;
+  margin: 50px 0;
+}
+.nivel-content section.direccion .mapa iframe {
+  width: 100%;
+  height: 350px;
 }
 .imagen-container {
   display: flex;
@@ -201,6 +325,9 @@ header .menu md-menu-bar .md-button:last-child {
   height: 80%;
   padding: 10%;
 }
+.ingles-content {
+  margin: 100px 0;
+}
 .ingles-content section.portada1 img {
   width: 100%;
   height: auto;
@@ -215,76 +342,97 @@ header .menu md-menu-bar .md-button:last-child {
   margin: auto;
   margin-top: 10%;
 }
-section.imagenes {
-  margin-top: -13%;
-  height: 100vh;
+@media (min-width: 960px) {
+  .ingles-content section.informacion {
+    margin-top: 150px;
+  }
 }
-section.imagenes .imagenes-container {
+.ingles-content section.informacion md-list md-icon {
+  color: #0a0e3a;
+}
+.conocenos {
+  margin-top: 100px;
+}
+.conocenos section.imagenes .imagenes-container {
   position: relative;
 }
-section.imagenes .imagenes-container .imagenes-content {
+.conocenos section.imagenes .imagenes-container .imagenes-content {
   position: relative;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoizquierda {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoizquierda {
   float: left;
   position: relative;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoizquierda img {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoizquierda .imagen img {
   height: 150px;
   display: inline;
   display: block;
   margin: 0 auto;
   float: left;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoizquierda p {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoizquierda p {
   font-weight: bold;
   font-size: 18px;
   margin-top: 15%;
   margin-right: 70px;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoderecha {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoderecha {
   margin-right: 0px;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoderecha img {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoderecha .imagen img {
   height: 150px;
   display: inline;
   display: block;
   margin: 0 auto;
   float: right;
 }
-section.imagenes .imagenes-container .imagenes-content section.fotoderecha p {
+.conocenos section.imagenes .imagenes-container .imagenes-content section.fotoderecha p {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
   margin-top: 15%;
   margin-left: 45%;
 }
-section.infoConocenos {
-  margin-top: -23%;
+.conocenos section.infoConocenos {
+  margin-bottom: 50px;
 }
-section.infoConocenos p {
-  margin-top: -12px;
+.conocenos section.infoConocenos md-list md-list-item {
+  height: 23px;
+  min-height: 23px;
 }
-section.inscripciones .inscripciones-container .inscripciones-content {
-  margin-top: 12%;
+.inscripciones {
+  margin-top: 100px;
 }
-section.inscripciones .inscripciones-container .inscripciones-content h4 {
-  font-size: 18px;
+.inscripciones .inscripciones-container .inscripciones-content md-list md-icon {
+  color: #0a0e3a;
 }
-section.inscripciones .inscripciones-container .inscripciones-content p {
-  margin-top: -12px;
+@media (max-width: 960px) {
+  .inscripciones .inscripciones-container md-grid-list md-grid-tile {
+    height: 280px !important;
+  }
 }
-section.inscripciones .inscripciones-container .info {
-  margin-top: 7%;
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content .imagen {
+  display: flex;
 }
-section.inscripciones .inscripciones-container .info md-grid-list {
-  margin-left: -20%;
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content .imagen img {
+  height: 100px;
+  width: auto;
+  margin: auto;
 }
-section.inscripciones .inscripciones-container .info1 {
-  margin-left: -10%;
-  margin-top: -14%;
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content md-divider {
+  border-top-width: 4px;
+  margin: 10px 0;
 }
-section.inscripciones .inscripciones-container .info2 {
-  margin-left: -10%;
-  margin-top: -20%;
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content h4 {
+  text-transform: uppercase;
+  margin-top: 8px !important;
+}
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content p {
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content p,
+.inscripciones .inscripciones-container md-grid-list md-grid-tile .grid-content h4 {
+  text-align: center;
+  margin: 3px 0;
 }

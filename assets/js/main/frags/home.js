@@ -5,32 +5,52 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
     $scope.loadingniveles = true;
 
+    todotrue();
+
+    $scope.medida = {
+        col: 1,
+        row: 1
+    }
+
     Niveles.obtener().then(function(res){
 
         $scope.niveles = res.data;
+
+        todotrue();
+
         $scope.loadingniveles = false;
-        console.log(res.data)
+        console.log($scope.niveles)
         $scope.$digest();
 
     })
 
+    function todotrue(){
+        _.forEach($scope.niveles, function(n, key){
+            console.log(n);
+
+            n.activo = true;
+        });
+    }
+
     $scope.selecionar = function(nivel){
+
         $state.go('home.nivel', {id: nivel.id})
 
-        let indexex  = []
 
         _.forEach($scope.niveles, function(n, key){
             console.log(n);
             if(n.id !== nivel.id){
 
-                indexex.push(key)
+                n.activo = false;
 
-                // $scope.niveles.splice(key, 1)
+            }
+
+            $scope.medida = {
+                col: 3,
+                row: 2
             }
         });
 
-        console.log(indexex);
-        _.pullAt($scope.niveles, indexes)
         $scope.$digest();
 
     }

@@ -1,7 +1,7 @@
 .nivel(layout="row" layout-align="center center")
     div(flex="100")
         section
-            md-card
+            md-card.md-padding
                 form(ng-submit="editarNivel(nivel)" layout="column")
                     div(layout="row")
                         md-input-container(flex)
@@ -17,9 +17,11 @@
                         md-input-container(flex)
                             label Colegiatura
                             input(ng-model="nivel.colegiatura" required)
-                    md-input-container
-                        label Descripcion
-                        textarea(ng-model="nivel.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                    //- md-input-container
+                    //-     label Descripcion
+                    //-     textarea(ng-model="nivel.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                    p Descripción del nivel
+                    text-angular(ng-model="nivel.descripcion")
                     md-button.large(type="submit" md-colors="{background: 'green'}" flex)
                         md-icon save
         section
@@ -36,9 +38,10 @@
                         md-input-container(flex)
                             label Nombre
                             input(ng-model="elemento.nombre" required)
-                        md-input-container(flex)
-                            label Descripcion
-                            textarea(ng-model="elemento.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
+                        //- md-input-container(flex)
+                        //-     label Descripcion
+                        //-     textarea( md-maxlength="1500" rows="4" md-select-on-focus required)
+                        text-angular(ng-model="elemento.descripcion")
                     .botonesElementos(layout="row")
                         md-button(type="submit" md-colors="{background: 'green'}" flex)
                             md-icon save

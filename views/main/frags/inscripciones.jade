@@ -1,26 +1,28 @@
-section.inscripciones(layout="row" layout-align="center center")
-    .inscripciones-container(flex="70" flex-md="80" flex-sm="90" flex-xs="100" layout="column")
+.inscripciones(layout="row" layout-align="center center")
+    .inscripciones-container(flex="70" flex-md="80" flex-sm="90" flex-xs="90" layout="column")
         .inscripciones-content(layout="column")
-            h4 Inscripciones
-            br
-            h3 DOCUMENTOS GENERALES PARA INSCRIPCIÓN:
-            p * DOS COPIAS DE ACTA DE NACIMIENTO DEL ALUMNO (A).
-            p * DOS COPIAS DE LA CURP DEL ALUMNO (A).
-            p * DOS COPIAS DE LA CREDENCIAL DE ELECTOR DE AMBOS PADRES O TUTOR.
+            h2 Inscripciones
+            p DOCUMENTOS GENERALES PARA INSCRIPCIÓN:
+            md-list
+                md-list-item
+                    md-icon chevron_right
+                    p DOS COPIAS DE ACTA DE NACIMIENTO DEL ALUMNO (A).
+                md-list-item
+                    md-icon chevron_right
+                    p DOS COPIAS DE LA CURP DEL ALUMNO (A).
+                md-list-item
+                    md-icon chevron_right
+                    p DOS COPIAS DE LA CREDENCIAL DE ELECTOR DE AMBOS PADRES O TUTOR.
             h3 INFORMACIÓN DE PROMOCIONES, BECAS Y CONVENIOS
             p TELS. DE OFICINA (833) 215 13 98, 215 13 42 Y 215 70 04
-            p HORARIO DE 7:00 A.M. A 7.00 P.M.
-        .info(layout="row" layout-align="center center")
-            md-grid-list(md-cols="4" md-row-height="1:1" flex="70" flex-md="70" flex-sm="70" flex-xs="100")
-                md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1")
-                    img(src="{{nivel.logo.imagen}}")
-        .info1(layout="row" layout-align="center center")
-            md-grid-list(md-cols="4" md-row-height="1:1" flex="70" flex-md="70" flex-sm="70" flex-xs="100")
-                md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1")
-                    //- h3 Inscripcion:
-                    p $ {{nivel.inscripcion}} MXN
-        .info2(layout="row" layout-align="center center")
-            md-grid-list(md-cols="4" md-row-height="1:1" flex="70" flex-md="70" flex-sm="70" flex-xs="100")
-                md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1")
-                    //- h3 Colegiatura:
-                    p $ {{nivel.colegiatura}} MXN
+            strong HORARIO DE 7:00 A.M. A 7.00 P.M.
+        md-grid-list(md-cols="4" md-cols-sm="1" md-cols-xs="1"  md-row-height="400px" md-row-height-xs="280px" md-row-height-sm="280px")
+            md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1" )
+                .grid-content(layout="column")
+                    .imagen
+                        img(src="{{nivel.logo.imagen}}")
+                    md-divider(style="border-color : {{nivel.coloralto}}")
+                    h4(style="color : {{nivel.coloralto}}") incripción:
+                    p ${{nivel.inscripcion}} MXN
+                    h4(style="color : {{nivel.coloralto}}") colegiatura:
+                    p ${{nivel.colegiatura}} MXN

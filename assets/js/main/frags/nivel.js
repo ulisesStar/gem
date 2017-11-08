@@ -1,6 +1,6 @@
 var app = angular.module('myapp');
 
-app.controller('nivelCtrl', function($scope, $state, $stateParams, Niveles) {
+app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, $sce, $mdExpansionPanel, $compile) {
 
     console.log($stateParams.id)
 
@@ -13,7 +13,7 @@ app.controller('nivelCtrl', function($scope, $state, $stateParams, Niveles) {
     }else{
 
         var id = $stateParams.id;
-        
+
         Niveles.one(id).then(res => {
 
             console.log(res.data);
@@ -29,4 +29,9 @@ app.controller('nivelCtrl', function($scope, $state, $stateParams, Niveles) {
         })
     }
 
+    $mdExpansionPanel().waitFor('0').then(function (instance) {
+      instance.expand();
+    });
+
+     $('li').before($compile('<div ng-attr-tooltip="test">Cancel</div>')($rootScope))
 });

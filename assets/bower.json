@@ -31,6 +31,8 @@
     "axios": "^0.16.2",
     "Croppie": "croppie#^2.5.0",
     "ngCroppie": "^1.0.3",
-    "angular-material-expansion-panel": "^0.7.2"
+    "angular-material-expansion-panel": "^0.7.2",
+    "textAngular": "^1.5.16",
+    "angular-sanitize": "^1.6.6"
   }
 }
