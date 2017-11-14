@@ -56,5 +56,7 @@ app.config([
         .state('home.nivel', template('nivel/:id', '/main/nivel', 'nivelCtrl', 'ozMainNivel', { 'id' : null}))
 
         .state('vidaestudiantil', template('/vidaestudiantil', '/main/vidaestudiantil', 'vidaCtrl', 'ozVidaEstudiantil'))
+
+        .state('acceso', template('/acceso', '/main/acceso', 'accesoCtrl', 'ozAcceso'))
     }
 ]);

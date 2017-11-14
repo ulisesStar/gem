@@ -2,7 +2,10 @@ var app = angular.module('myapp');
 
 app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, $sce, $mdExpansionPanel, $compile) {
 
-    console.log($stateParams.id)
+    console.log($stateParams)
+
+
+    console.log($scope.niveles)
 
     $scope.loading = true;
     $scope.portadas = false;
@@ -16,7 +19,7 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
 
         Niveles.one(id).then(res => {
 
-            console.log(res.data);
+            // console.log(res.data);
             $scope.nivel = res.data;
             $scope.$digest();
 
@@ -24,7 +27,7 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
 
         Niveles.portadas(id).then(res => {
             $scope.portadas = res.data;
-            console.log(res.data);
+            // console.log(res.data);
             $scope.$digest();
         })
     }
@@ -33,5 +36,9 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
       instance.expand();
     });
 
-     $('li').before($compile('<div ng-attr-tooltip="test">Cancel</div>')($rootScope))
+    $('li').html($compile('<div ng-attr-tooltip="test">Cancel</div>')($scope))
+
+    // $("li").html($compile("<div ng-attr-tooltip="test">Cancel</div>")(scope));
+
+
 });

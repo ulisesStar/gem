@@ -27,7 +27,6 @@ var routePortadas = require('./http/routes/routePortadas');
 // - Conexion a la base de datos
 
 var con = require('./http/connection');
-
 // require('./conf/auth')(app);
 
 // - Middlewares

@@ -1,4 +1,4 @@
-.nivel-content
+.nivel-content#nivel(animacion)
 	section.portada1
 		.loading-content(ng-if="!portadas")
 			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas")
@@ -7,12 +7,12 @@
 		.info-container(flex="80" flex-md="90" flex-sm="90" flex-xs="100" layout="column")
 			.descripcion.md-padding
 				.descripcion-content(ng-bind-html="nivel.descripcion")
-			.info-content(layout="row" layout-xs="column" flex)
+			.info-content(layout="row")
 				.contenido(flex="70" flex-xs="100")
 					.loading-content(ng-if="!nivel")
 						md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="nivel" ng-if="!nivel")
-					.panel(ng-if="nivel")
-						md-expansion-panel(md-component-id='{{$index}}' ng-repeat="elemento in nivel.elementos")
+					.panel#panel(ng-if="nivel")
+						md-expansion-panel#circulo(md-component-id='{{$index}}' ng-repeat="elemento in nivel.elementos")
 							md-expansion-panel-collapsed(style="background-color: {{nivel.colorbajo}}")
 								.md-title
 									p {{elemento.nombre}}
@@ -24,14 +24,14 @@
 								md-expansion-panel-footer
 									md-button(ng-click="$panel.collapse()")
 										md-icon keyboard_arrow_up
-				.formulario(flex="30" flex-xs="100" ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 53}) , 'azul' : $state.includes('home.nivel', {id: 52}) , 'verde' : $state.includes('home.nivel', {id: 91})} ")
+				.formulario(flex="30" flex-xs="100" hide-xs ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 53}) , 'azul' : $state.includes('home.nivel', {id: 52}) , 'verde' : $state.includes('home.nivel', {id: 91})} ")
 					md-card
 						md-toolbar
 							.md-toolbar-tools
 								md-icon markunread_mailbox
 								h1 Contactanos
-						md-card-content
-							form(layout="column")
+						form
+							.md-padding(layout="column")
 								md-input-container(flex)
 									label Nombre
 									input
@@ -41,8 +41,8 @@
 								md-input-container(flex)
 									label Mensaje
 									textarea(ng-model="formulario.mensaje" md-maxlength="150" rows="5")
-								md-button(type="submit" style="background-color: {{nivel.colorbajo}}; color:white;")
-									| Enviar
+							md-button(type="submit" style="background-color: {{nivel.colorbajo}}; color:white;")
+								| Enviar
 	section.portada2
 		.loading-content(ng-if="!portadas")
 			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas" ng-if="!portadas")

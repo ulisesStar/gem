@@ -1,10 +1,39 @@
-app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $timeout, $mdSidenav) {
+app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $timeout, $mdSidenav, AuthService, $localStorage, $transitions, $state, alertas) {
 
     $scope.productos = [];
 
     $scope.mdDialogTarjeta = function(data){
         mdDialog.mostrardialog('nuevoproducto', 'adminCtrl', $scope.customFullscreen);
     }
+
+    $scope.token = $localStorage.token
+
+    $transitions.onSuccess({}, trans => {
+        var authorizedRoles = $state.current.data.authorizedRoles;
+        var s = AuthService.autorizacion(authorizedRoles);
+        if (s === false) {
+            alertas.mostrarToastEstandar("No estas autorizado para entrar a estar seccion");
+            $state.go('home');
+            if(!$scope.usuario){
+                $window.location.href = "/#/usuario";
+            }
+        }
+    });
+
+    AuthService.token($scope.token).then(data => {
+        $scope.usuario = data.usuario;
+            $scope.secciones.forEach(seccion => {
+                let rol = data.usuario.privilegio;
+                let bandera = _.includes(seccion.estado, rol)
+                if(bandera === false){
+                    seccion.visible = false;
+                }else{
+                    seccion.visible = true;
+                }
+            })
+
+        console.log($scope.secciones);
+    })
 
     $scope.secciones = [
         {

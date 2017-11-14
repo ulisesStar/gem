@@ -6,6 +6,7 @@ var ex = function(conector) {
     var Niveles = sequelize.define('niveles', {
         id:{ type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
         nombre: Sequelize.STRING,
+        introduccion: Sequelize.TEXT,
         descripcion: Sequelize.TEXT,
         // logo: {
         //     type: Sequelize.BLOB('medium'),

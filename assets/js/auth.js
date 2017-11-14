@@ -1,16 +1,21 @@
-app.factory('AuthService', function($window, $http, Session, $localStorage, alertas, $state) {
+app.constant('USER_ROLES', {
+    all: 'all',
+    admin: 'admin',
+    editor: 'editor',
+    guest: 'guest'
+})
+
+app.factory('AuthService', function($q, $window, $http, $rootScope, Session, $localStorage, alertas, $state) {
 
     var authService = {};
+
+    var deferred = $q.defer();
 
     authService.registro = function(credentials) {
 
         $http.post('/data/registro', credentials)
         .success(data => {
             console.log(data);
-            // alertas.mostrarToastEstandar("Usuario registrado");
-            // Session.create(data.user);
-            // $window.location.href = "/user";
-            // $localStorage.auth = true;
         })
         .error(err => {
             alertas.mostrarToastEstandar("No se pudo registrar");
@@ -19,27 +24,28 @@ app.factory('AuthService', function($window, $http, Session, $localStorage, aler
 
     };
 
+    this.crearConNivel = function(id,elemento) { return axios.post('/data/elementosConNivel/' + id, elemento) }
+
     authService.login = function(credentials) {
+
         $http.post('/data/login', credentials)
-        .success(data => {
-            if(data.token){
-                console.log(data);
-                Session.create(data.token);
-                // $localStorage.auth = true;
-                $window.location.href = "/user";
+        .then(res => {
+
+            if(res.data.token){
+                console.log(res);
+                Session.create(res.data.token);
+                $window.location.href = "/admin";
             }else{
                 alertas.mostrarToastEstandar("Usuario o contraseña incorrecta");
             }
+            deferred.resolve(res.data);
 
         })
-        .error(function(data){
-            console.log(data);
-        })
+        return deferred.promise;
+
     };
 
-    authService.logout = function() {
-        Session.destroy();
-    };
+
 
     authService.update = function(user) {
         return $http.post( '/user/update', user).then(function(resp) {
@@ -50,13 +56,38 @@ app.factory('AuthService', function($window, $http, Session, $localStorage, aler
         });
     };
 
+    authService.token = function(token) {
+    var deferred = $q.defer();
+    $http.post('/data/token', {token: token}).then(res => {
+        deferred.resolve(res.data);
+        if (res.data.success === false) {
+            alertas.mostrarToastEstandar("No se pudo logear");
+            $window.location.href = "/#!/acceso";
+        } else {
+            $rootScope.rol = res.data.usuario.privilegio;
+            alertas.mostrarToastEstandar("Paso el proceso de seguridad");
+        }
+    })
+
+    authService.autorizacion = function(roles) {
+        let rol = $rootScope.rol;
+        x = _.includes(roles, rol)
+        return x;
+    };
+
+    authService.logout = function() {
+        Session.destroy();
+    };
+
+    return deferred.promise;
+}
+
     return authService;
 });
 
 app.service('Session', function($localStorage) {
     this.create = function(data) {
         $localStorage.$reset();
-        // $localStorage.accessToken = user.access_token;
         $localStorage.token = data;
     };
 

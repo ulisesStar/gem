@@ -89,8 +89,8 @@ app.controller('infoNivelCtrl', function($scope, $state, $stateParams, $mdDialog
 
                 $scope.opciones = {
                     tipo : x,
-                    boundry : { w: 2362, h: 521 },
-                    viewport : { w: 2362, h: 521}
+                    boundry : { w: 1024, h: 370 },
+                    viewport : { w: 1024, h: 370 },
                 }
 
                 break;
@@ -98,8 +98,8 @@ app.controller('infoNivelCtrl', function($scope, $state, $stateParams, $mdDialog
 
                 $scope.opciones = {
                     tipo : x,
-                    boundry : { w: 1024, h: 370 },
-                    viewport : { w: 1024, h: 370 },
+                    boundry : { w: 2362, h: 521 },
+                    viewport : { w: 2362, h: 521}
                 }
 
                 break;
