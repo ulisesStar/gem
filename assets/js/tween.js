@@ -34,7 +34,7 @@ app.directive('animacion', function() {
         duration: '200px'
     })
     .setTween(tweenCirculo)
-    .addIndicators()
+    // .addIndicators()
     .addTo(scrollMagicController);
 
     // var formulario = TweenMax.from('.formulario', 0.5, {opacity:0});
