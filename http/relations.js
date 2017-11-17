@@ -13,6 +13,8 @@ var album = require('./db/modeloAlbum')(conector);
 var fotos = require('./db/modeloFotos')(conector);
 var portadas = require('./db/modeloPortadas')(conector);
 var logo = require('./db/modeloLogo')(conector);
+var contactos = require('./db/modeloContactos')(conector);
+
 
 
 //- Relations
@@ -41,3 +43,4 @@ module.exports.album = album;
 module.exports.fotos = fotos;
 module.exports.portadas = portadas;
 module.exports.logo = logo;
+module.exports.contactos = contactos;

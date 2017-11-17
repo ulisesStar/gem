@@ -21,6 +21,7 @@ var routeNiveles = require('./http/routes/routeNiveles');
 var routeAlbum = require('./http/routes/routeAlbum');
 var routeFotos = require('./http/routes/routeFotos');
 var routePortadas = require('./http/routes/routePortadas');
+var routeContactos = require('./http/routes/routeContactos');
 
 
 
@@ -58,6 +59,7 @@ app.use('/', routeNiveles);
 app.use('/', routeAlbum);
 app.use('/', routeFotos);
 app.use('/', routePortadas);
+app.use('/', routeContactos);
 
 
 app.use(lessMiddleware(__dirname + '/assets'));

@@ -53,7 +53,10 @@ app.config([
         .state('conocenos',pequenin('/conocenos', '/main/conocenos'))
         .state('inscripciones', template('/inscripciones', '/main/inscripciones', 'inscripcionesCtrl', 'ozMainInscripciones'))
         .state('ingles',pequenin('/ingles', '/main/ingles'))
-        .state('home.nivel', template('nivel/:id', '/main/nivel', 'nivelCtrl', 'ozMainNivel', { 'id' : null}))
+        .state('home.nivel', template('nivel', '/main/nivel', 'nivelCtrl', 'ozMainNivel', { 'id' : null}))
+        .state('home.deporte', template('deporte', '/main/deporte', 'deporteCtrl', 'ozMainDeporte', { 'id' : null}))
+
+		.state('home.album', template('album/:id', '/main/album', 'albumCtrl', 'ozAlbum', { 'id' : null}))
 
         .state('vidaestudiantil', template('/vidaestudiantil', '/main/vidaestudiantil', 'vidaCtrl', 'ozVidaEstudiantil'))
 

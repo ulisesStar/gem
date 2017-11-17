@@ -1,0 +1,9 @@
+.album(layout="row" layout-align="center center")
+    div(flex="80")
+        md-card(layout="row")
+            md-button(ui-sref="home.deporte" style="display:flex")
+                md-icon(style="margin:auto") keyboard_arrow_left
+            p {{evento.nombre}}
+        md-grid-list(md-cols="3" md-row-height="300px")
+            md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="foto in album")
+                imagenalbum.foto(id="{{foto.id}}")

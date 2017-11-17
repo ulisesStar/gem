@@ -1,0 +1,30 @@
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Contactos
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column md-numeric md-order-by="contacto.createdAt")
+                        md-icon date_range
+                        strong Fecha
+                    th(md-column md-numeric)
+                        md-icon person
+                        strong Nombre
+                    th(md-column md-numeric)
+                        md-icon mail
+                        | E-mail
+                    th(md-column md-numeric)
+                        md-icon border_color
+                        | Mensaje
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="contacto in contactos")
+                    td(md-cell) {{contacto.createdAt | date:'medium' }}
+                    td(md-cell) {{contacto.nombre}}
+                    td(md-cell) {{contacto.email}}
+                    td(md-cell) {{contacto.mensaje}}
+                    td(md-cell)
+                        //- md-button(ng-click="CotizacionDialog(cotizacion.id)" md-colors="{background : 'green'}")
+                        //-     md-icon visibility
+    md-table-pagination(md-page-select)

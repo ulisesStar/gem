@@ -1,6 +1,9 @@
 var db = require('../relations');
 var imagenes = db.imagenes;
 
+var conector = require('../connection');
+var sequelize = conector.sequelize;
+
 var ex = module.exports = {};
 
 ex.create = function(req, res, next) {
@@ -65,16 +68,20 @@ ex.crearConEvento = function(req, res, next) {
 };
 
 ex.obtenerConEvento = function(req, res, next) {
+
     var id = req.params.idEvento;
 
-    var busca = {
-        where: {
-            idEvento: id
-        }
-    }
-
-    imagenes.findAll(busca).then(function(imagenes) {
-        res.status(200).jsonp(imagenes);
+    sequelize.query("SELECT id FROM imagenes WHERE idEvento = " + id).then(function(result){
+        res.status(200).jsonp(result[0]);
     });
+
+    // imagenes.findAll({
+    //     // where: {
+    //     //     idEvento: id
+    //     // },
+    //     attributes: ['id']
+    // }).then(function(imagenes) {
+    //     res.status(200).jsonp(imagenes);
+    // });
 
 };

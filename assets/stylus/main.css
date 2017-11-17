@@ -22,6 +22,12 @@ h2 {
 .verde {
   background-color: #51b83e !important;
 }
+.blanco {
+  background-color: #fff !important;
+}
+.negro p {
+  color: #000 !important;
+}
 header {
   position: fixed;
   z-index: 10;
@@ -74,7 +80,7 @@ header .menu md-menu-bar .md-button.active {
   height: auto;
 }
 .nivel-content section.portada2 {
-  margin: 100px 0;
+  margin-top: 100px;
 }
 .nivel-content section.info .descripcion .descripcion-content {
   margin: 150px 0;
@@ -84,9 +90,10 @@ header .menu md-menu-bar .md-button.active {
   padding: 0 40px;
 }
 .nivel-content section.info .contenido .loading-content {
+  display: flex;
   margin: auto;
 }
-.nivel-content section.info .contenido .loading-content display flex md-progress-circular {
+.nivel-content section.info .contenido .loading-content md-progress-circular {
   margin: auto;
 }
 .nivel-content section.info .contenido .panel {
@@ -210,14 +217,6 @@ header .menu md-menu-bar .md-button.active {
   padding: 0px;
   margin: 0px;
 }
-.nivel-content section.direccion {
-  width: 100%;
-  margin: 50px 0;
-}
-.nivel-content section.direccion .mapa iframe {
-  width: 100%;
-  height: 350px;
-}
 .imagen-container {
   display: flex;
 }
@@ -305,9 +304,23 @@ header .menu md-menu-bar .md-button.active {
 .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro {
   display: flex;
 }
-.home .home-container .niveles md-grid-list md-grid-tile .nivel .intro p {
+@media (max-width: 960px) {
+  .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+.home .home-container .niveles md-grid-list md-grid-tile .nivel .intro .intro-content {
   margin: auto;
   color: #fff;
+}
+@media (max-width: 960px) {
+  .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro .intro-content {
+    margin: 0;
+  }
+}
+.home .home-container .niveles md-grid-list md-grid-tile .nivel .intro .intro-content p {
+  font-size: 20px;
 }
 .home .home-container .niveles md-grid-list.seccionHome md-grid-tile.conHover img {
   transform: scale(1.1);
@@ -319,6 +332,12 @@ header .menu md-menu-bar .md-button.active {
 .home .home-container .niveles md-grid-list.seccionHome md-grid-tile.sinHover img {
   width: auto;
   height: 100%;
+}
+@media (max-width: 960px) {
+  .home .home-container .niveles md-grid-list.seccionNivel md-grid-tile img {
+    width: 190px !important;
+    height: 230px !important;
+  }
 }
 .home .home-container .siguiente {
   height: 50px;
@@ -387,6 +406,9 @@ header .menu md-menu-bar .md-button.active {
   margin: auto;
   margin-top: 10%;
 }
+.ingles-content section.informacion p {
+  text-align: justify;
+}
 @media (min-width: 960px) {
   .ingles-content section.informacion {
     margin-top: 150px;
@@ -441,9 +463,13 @@ header .menu md-menu-bar .md-button.active {
 .conocenos section.infoConocenos {
   margin-bottom: 50px;
 }
+.conocenos section.infoConocenos p {
+  font-size: 18px;
+}
 .conocenos section.infoConocenos md-list md-list-item {
   height: 23px;
   min-height: 23px;
+  font-size: 18px;
 }
 .inscripciones {
   margin-top: 100px;
@@ -484,6 +510,130 @@ header .menu md-menu-bar .md-button.active {
 .acceso {
   width: 100vw;
   height: calc(100vh - 100px);
+}
+.deporte md-grid-list {
+  margin: 100px 0;
+}
+.deporte md-grid-list md-grid-tile {
+  font-size: 24px;
+  cursor: pointer;
+}
+.deporte md-grid-list md-grid-tile.conHover {
+  background-color: #fff;
+  color: #0a0e3a;
+}
+.deporte md-grid-list md-grid-tile.sinHover {
+  background-color: #0a0e3a;
+  color: #fff;
+}
+.album md-grid-list md-grid-tile imagenalbum {
+  width: 100%;
+  height: 100%;
+}
+.album md-grid-list md-grid-tile imagenalbum div {
+  width: 100%;
+  height: 100%;
+}
+.album md-grid-list md-grid-tile imagenalbum div img {
+  width: auto;
+  height: 100%;
+}
+footer {
+  background-color: #fff;
+}
+@media (max-width: 960px) {
+  footer {
+    height: 820px;
+  }
+}
+footer .footer-content {
+  width: 100%;
+}
+@media (max-width: 960px) {
+  footer .footer-content {
+    min-height: 770px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 960px) {
+  footer .footer-content .info {
+    min-height: 124px !important;
+  }
+}
+footer .footer-content .info img {
+  width: 150px;
+  height: 70px;
+}
+footer .footer-content .info .md-button.fb {
+  background-color: #475993;
+  display: flex;
+  color: #fff;
+  max-width: 210px;
+}
+footer .footer-content .info .md-button.fb svg {
+  width: 24px;
+}
+footer .footer-content .info .md-button.fb svg path {
+  fill: #fff !important;
+}
+footer .footer-content .info .md-button.fb p {
+  margin: 0px;
+  margin-left: 10px;
+}
+footer .footer-content .info md-list md-list-item {
+  height: 38px;
+  min-height: 38px;
+}
+footer .footer-content .direccion {
+  width: 100%;
+  margin: 50px 0;
+}
+@media (max-width: 960px) {
+  footer .footer-content .direccion {
+    margin: 0px;
+  }
+}
+@media (max-width: 960px) {
+  footer .footer-content .direccion .direccion-content {
+    min-height: 570px !important;
+  }
+}
+footer .footer-content .direccion .direccion-content ui-gmap-google-map {
+  height: 300px;
+}
+@media (max-width: 960px) {
+  footer .footer-content .direccion .direccion-content ui-gmap-google-map {
+    height: 300px !important;
+    width: 100% !important;
+  }
+}
+footer .footer-content .direccion .direccion-content ui-gmap-google-map .angular-google-map-container {
+  height: 100%;
+}
+@media (max-width: 960px) {
+  footer .footer-content .direccion .direccion-content ui-gmap-google-map .angular-google-map-container {
+    height: 300px;
+  }
+}
+@media (max-width: 960px) {
+  footer .footer-content .direccion .direccion-content md-list {
+    margin-top: 60px;
+  }
+}
+footer .footer-content .direccion .direccion-content md-list h4 {
+  padding-left: 10px;
+}
+footer .footer-content .direccion .direccion-content md-list md-list-item md-icon {
+  color: #0a0e3a;
+}
+footer .footer-content .direccion .direccion-content md-list md-list-item .md-item-text {
+  color: #fff;
+}
+footer .footer-content .direccion .direccion-content md-list md-list-item .md-item-text h3 {
+  color: #0a0e3a !important;
+}
+footer .footer-content .direccion .direccion-content md-list md-list-item .md-item-text p {
+  color: #000 !important;
 }
 timeline timeline-event timeline-badge.facebook {
   background-color: #3c5a99;

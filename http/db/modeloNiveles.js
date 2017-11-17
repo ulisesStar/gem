@@ -21,6 +21,7 @@ var ex = function(conector) {
         colegiatura: Sequelize.FLOAT,
         colorbajo: Sequelize.STRING,
         coloralto: Sequelize.STRING,
+        jerarquia: Sequelize.INTEGER
     })
 
     return Niveles;

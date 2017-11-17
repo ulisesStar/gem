@@ -17,7 +17,7 @@
             p TELS. DE OFICINA (833) 215 13 98, 215 13 42 Y 215 70 04
             strong HORARIO DE 7:00 A.M. A 7.00 P.M.
         md-grid-list(md-cols="4" md-cols-sm="1" md-cols-xs="1"  md-row-height="400px" md-row-height-xs="280px" md-row-height-sm="280px")
-            md-grid-tile(ng-repeat="nivel in niveles" md-colspan="1" md-rowspan="1" )
+            md-grid-tile(ng-repeat="nivel in jerarquia" md-colspan="1" md-rowspan="1" )
                 .grid-content(layout="column")
                     .imagen
                         img(src="{{nivel.logo.imagen}}")

@@ -1,11 +1,8 @@
 var app = angular.module('myapp');
 
-app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, $sce, $mdExpansionPanel, $compile) {
+app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, alertas, $sce, $mdExpansionPanel, $compile, Contactos) {
 
     console.log($stateParams)
-
-
-    console.log($scope.niveles)
 
     $scope.loading = true;
     $scope.portadas = false;
@@ -40,5 +37,15 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
 
     // $("li").html($compile("<div ng-attr-tooltip="test">Cancel</div>")(scope));
 
+    $scope.listo = false;
+
+    $scope.nuevoContacto = function(contacto){
+        Contactos.crear(contacto).then(res =>{
+            alertas.mostrarToastEstandar("Mensaje enviado");
+            $scope.listo = true;
+			delete $scope.contacto
+        })
+
+    }
 
 });

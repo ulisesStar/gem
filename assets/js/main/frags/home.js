@@ -11,13 +11,29 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
 
     $transitions.onSuccess({}, trans => {
 
-        if($state.is('home')){
-            medidaEstandar()
+        $state.current.name === 'home' ? (
+            medidaEstandar(),
             todotrue()
-            console.log('es home')
-        }
+        ): (
 
+            console.log('estoy en home nivel')
 
+        )
+
+        // if($state.is('home')){
+        //     medidaEstandar()
+        //     todotrue()
+        // }
+        //
+        // if($state.is('home.nivel')){
+        //
+        //     console.log('estoy en home nivel')
+        //
+        // }
+
+        // else{
+        //     todofalseExcepto($stateParams.id)
+        // }
 
         // if($state.is('home.nivel')){
         //     console.log($stateParams)
@@ -27,7 +43,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
 
     if($state.current.name === 'home.nivel'){
 
-        console.log('algo')
         console.log($stateParams)
         todofalseExcepto($stateParams.id)
     }
@@ -63,7 +78,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
 
     function todofalseExcepto(nivel){
 
-        console.log('voy')
+        console.log('Se ejecuta la funcion ')
 
         let x = 0
 
@@ -91,10 +106,17 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
     }
 
     $scope.selecionar = function(nivel){
-
-        $state.go('home.nivel', {id: nivel.id})
-        todofalseExcepto(nivel.id)
-
+        if (nivel.id === 93)
+        {
+            console.log('Actividad Deportiva"')
+            $state.go('home.deporte', {id: nivel.id})
+            todofalseExcepto(nivel.id)
+        }
+        else
+        {
+            $state.go('home.nivel', {id: nivel.id})
+            todofalseExcepto(nivel.id)
+        }
     }
 
     $scope.irNivel = function(){

@@ -12,6 +12,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 				files: ['js/main/frags/nivel.js']
 			},
             {
+				name: 'ozMainDeporte',
+				files: ['js/main/frags/deporte.js']
+			},
+            {
 				name: 'ozMainInscripciones',
 				files: ['js/main/frags/inscripciones.js']
 			},
@@ -51,6 +55,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 				name: 'ozAdminFotos',
 				files: ['js/admin/frags/fotos.js']
 			},
+            {
+				name: 'ozAdminContacto',
+				files: ['js/admin/frags/contacto.js']
+			},
 			{
 				name: 'ozUserHome',
 				files: ['js/user/frags/home.js']
@@ -62,6 +70,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
             {
 				name: 'ozAcceso',
 				files: ['js/main/frags/acceso.js']
+			},
+			{
+				name: 'ozAlbum',
+				files: ['js/main/frags/album.js']
 			}
         ]
     });

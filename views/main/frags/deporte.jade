@@ -1,0 +1,5 @@
+.deporte(layout="row" layout-align="center center")
+    div(flex="80")
+        md-grid-list(md-cols="3" md-row-height="200px")
+            md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="evento in eventos" ng-click="irAlbum(evento)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
+                p {{evento.nombre}}

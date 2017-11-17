@@ -47,9 +47,11 @@ app.config(['$urlRouterProvider', '$stateProvider', 'USER_ROLES', function ($url
 	.state('niveles', complejo('/niveles', '/admin/nivel', 'nivelCtrl', 'ozAdminNivel', [USER_ROLES.admin, USER_ROLES.editor]))
 	.state('nuevoNivel', complejo('/nuevoNivel', '/admin/nuevoNivel', 'nuevoNivelCtrl', 'ozAdminNuevoNivel', [USER_ROLES.admin, USER_ROLES.editor]))
 	.state('nivel', complejo('/nivel/:idNivel', '/admin/infoNivel', 'infoNivelCtrl', 'ozAdminInfoNivel', [USER_ROLES.admin, USER_ROLES.editor]))
-	.state('eventos', complejo('/eventos', '/admin/eventos', 'eventosCtrl', 'ozAdminEventos', [USER_ROLES.editor]))
+	.state('eventos', complejo('/eventos', '/admin/eventos', 'eventosCtrl', 'ozAdminEventos', [USER_ROLES.admin, USER_ROLES.editor]))
 	.state('evento', complejo('/evento/:idEvento', '/admin/infoEventos', 'infoEventosCtrl', 'ozAdminInfoEventos', [USER_ROLES.admin, USER_ROLES.editor]))
     .state('elementos', complejo('/elementos/:idNivel', '/admin/elementos', 'elementosCtrl', 'ozAdminElementos', [USER_ROLES.admin, USER_ROLES.editor]))
     .state('album', complejo('/album', '/admin/album', 'albumCtrl', 'ozAdminAlbum', [USER_ROLES.admin, USER_ROLES.editor]))
     .state('fotos', complejo('/fotos', '/admin/fotos', 'fotosCtrl', 'ozAdminFotos', [USER_ROLES.admin, USER_ROLES.editor]))
+	.state('contacto', complejo('/contacto', '/admin/contacto', 'contactoCtrl', 'ozAdminContacto', [USER_ROLES.admin]))
+
 }]);

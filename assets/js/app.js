@@ -10,7 +10,8 @@ var app = angular.module('myapp', [
     'ngCroppie',
     'material.components.expansionPanels',
     'textAngular',
-    'angular-timeline'
+    'angular-timeline',
+    'md.data.table'
 ]);
 
 //TEMAS
@@ -216,6 +217,33 @@ app.service('anchorSmoothScroll', function(){
             } return y;
         }
 
+    };
+
+});
+
+app.directive('imagenalbum', function() {
+
+    var template = '<md-progress-circular ng-disabled="!cargandoimagen" ng-if="cargandoimagen" class="md-hue-2" md-diameter="20px"></md-progress-circular><div ng-if="!hover"><img ng-src="{{imagen.imagen}}"><div>';
+
+    return {
+        scope: {
+            id: '@'
+        },
+        restrict: 'EA',
+        template: template,
+        controller: function($scope, Imagenes) {
+
+            var id = $scope.id;
+            $scope.cargandoimagen = true;
+
+			Imagenes.one(id).then(res => {
+                
+				$scope.imagen = res.data;
+				$scope.cargandoimagen = false;
+				$scope.$digest();
+
+			})
+        }
     };
 
 });

@@ -26,7 +26,7 @@ app.service('Elementos', function($http, alertas, $q) {
 });
 
 app.service('Eventos', function($http, alertas, $q) {
-     this.obtener = function() { return axios('/data/eventos') }
+    this.obtener = function() { return axios('/data/eventos') }
     this.obtenerConNivel = function(id) { return axios('/data/eventosConNivel/' + id) }
     this.one = function(id) { return axios('/data/eventos/' + id) }
     this.crearConNivel = function(evento) { return axios.post('/data/eventosConNivel/' + evento.idNivel, evento) }
@@ -41,4 +41,11 @@ app.service('Imagenes', function($http, alertas, $q) {
     this.crearConEvento = function(id, foto) { return axios.post('/data/imagenesConEvento/' + id, foto) }
     this.editar = function(imagen) { return axios.put('/data/imagenes/' + imagen.id, imagen) }
     this.eliminar = function(id) { return axios.delete('/data/imagenes/' + id) }
+});
+
+app.service('Contactos', function($http, alertas, $q) {
+    this.obtener = function() { return axios('/data/contactos') }
+    this.one = function(id) { return axios('/data/contactos/' + id) }
+    this.crear = function(contacto) { return axios.post('/data/contactos', contacto) }
+    this.eliminar = function(id) { return axios.delete('/data/contactos/' + id) }
 });

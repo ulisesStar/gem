@@ -50,6 +50,11 @@ app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $time
             nombre: 'Eventos',
             icon: 'event',
             state: 'eventos'
+        },
+        {
+            nombre: 'Contacto',
+            icon: 'perm_contact_calendar',
+            state: 'contacto'
         }
     ];
 

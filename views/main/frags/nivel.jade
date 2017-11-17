@@ -4,7 +4,7 @@
 			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas")
 		img(src="{{portadas[0].imagen}}" ng-if="portadas")
 	section.info(layout="row" layout-align="center center")
-		.info-container(flex="80" flex-md="90" flex-sm="90" flex-xs="100" layout="column")
+		.info-container(flex="80" flex-md="90" flex-sm="90" flex-xs="90" layout="column")
 			.descripcion.md-padding
 				.descripcion-content(ng-bind-html="nivel.descripcion")
 			.info-content(layout="row")
@@ -24,38 +24,29 @@
 								md-expansion-panel-footer
 									md-button(ng-click="$panel.collapse()")
 										md-icon keyboard_arrow_up
-				.formulario(flex="30" flex-xs="100" hide-xs ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 53}) , 'azul' : $state.includes('home.nivel', {id: 52}) , 'verde' : $state.includes('home.nivel', {id: 91})} ")
+				.formulario(flex="30" flex-xs="100" hide-xs ng-class="{ 'rojo' : $state.includes('home.nivel', {id: 51}) , 'morado' : $state.includes('home.nivel', {id: 61}) , 'naranja' : $state.includes('home.nivel', {id: 53}) , 'azul' : $state.includes('home.nivel', {id: 52}) , 'verde' : $state.includes('home.nivel', {id: 94})} ")
 					md-card
 						md-toolbar
 							.md-toolbar-tools
 								md-icon markunread_mailbox
-								h1 Contactanos
-						form
+								h1 Contáctanos
+						form(ng-submit="nuevoContacto(contacto)" ng-hide="listo")
 							.md-padding(layout="column")
 								md-input-container(flex)
 									label Nombre
-									input
-								md-input-container(flex)
+									input(ng-model="contacto.nombre" required)
+								md-input-container(flex required)
 									label E-mail
-									input
+									input(ng-model="contacto.email" required)
 								md-input-container(flex)
 									label Mensaje
-									textarea(ng-model="formulario.mensaje" md-maxlength="150" rows="5")
+									textarea(ng-model="contacto.mensaje" md-maxlength="800" rows="5" required)
 							md-button(type="submit" style="background-color: {{nivel.colorbajo}}; color:white;")
 								| Enviar
+						div(ng-show="listo")
+							md-card
+								h1(style="text-align: center") Muchas Gracias, muy pronto nos comunicaremos contigo.
 	section.portada2
 		.loading-content(ng-if="!portadas")
 			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="portadas" ng-if="!portadas")
 		img(src="{{portadas[1].imagen}}" ng-if="portadas")
-	section.direccion(layout="row" layout-align="center center")
-		div(flex="80" layout="row" layout-xs="column")
-			.direccion-content.md-padding(flex flex-xs="50")
-				md-toolbar(style="background-color: {{nivel.colorbajo}}")
-					.md-toolbar-tools
-						h1 Direccion
-				md-list
-					md-list-item Calle 5 de mayo Num .606 Entre Pedro J. Mendez y Rivas Guillen Col.
-					md-list-item Ampliacion de la Unidad Nacional, Cd. Madero, Tam.
-					md-list-item TEL GEM OFICINA. (833) 2151398 TEL. GEMi KINDER. (833) 126 5637.
-			.mapa(flex flex-xs="50")
-				iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3649.392222281237!2d-97.84589084048083!3d22.285713272771158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1510158514248" frameborder="0" style="border:0" allowfullscreen)

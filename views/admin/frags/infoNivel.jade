@@ -7,9 +7,9 @@
                         md-input-container(flex)
                             label Nombre
                             input(ng-model="nivel.nombre" required)
-                        md-input-container(flex)
-                            label Direccion
-                            input(ng-model="nivel.direccion" required)
+                        //- md-input-container(flex)
+                        //-     label Direccion
+                        //-     input(ng-model="nivel.direccion" required)
                     div(layout="row")
                         md-input-container(flex)
                             label Inscripcion
@@ -20,7 +20,9 @@
                     //- md-input-container
                     //-     label Descripcion
                     //-     textarea(ng-model="nivel.descripcion" md-maxlength="1500" rows="4" md-select-on-focus required)
-                    p Introducción del nivel
+                    //- p Dirección
+                    //- text-angular(ng-model="nivel.direccion")
+                    //- p Introducción del nivel
                     text-angular(ng-model="nivel.introduccion")
                     p Descripción del nivel
                     text-angular(ng-model="nivel.descripcion")

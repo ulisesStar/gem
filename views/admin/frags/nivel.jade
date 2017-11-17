@@ -20,7 +20,7 @@ div(layout="row" layout-align="center center")
             md-card-content
             md-divider
             md-list
-                md-list-item.md-2-line(ng-repeat="nivel in niveles | filter: ctrl.searchTextNivel" ui-sref="nivel({idNivel:nivel.id})")
+                md-list-item(ng-repeat="nivel in niveles | filter: ctrl.searchTextNivel" ui-sref="nivel({idNivel:nivel.id})")
                     .md-list-item-text
                         p {{nivel.nombre}}
-                        
+                        md-divider

@@ -9,7 +9,7 @@ app.controller('nuevoNivelCtrl', function($scope, $rootScope, $state, $http, mdD
             alertas.mostrarToastEstandar("Agregado correctamente");
             delete $scope.inputImage;
             $scope.$digest();
-            $state.go('elementos', {'idNivel': res.data.id});
+            $state.go('niveles');
         })
     }
 });
