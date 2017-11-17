@@ -308,6 +308,7 @@ header .menu md-menu-bar .md-button.active {
   .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro {
     width: 90%;
     margin: 0 5%;
+    margin-top: 200px;
   }
 }
 .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro .intro-content {

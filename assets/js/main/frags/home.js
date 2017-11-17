@@ -5,49 +5,96 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
 
     $scope.loadingniveles = true;
 
-    todotrue();
-
-    console.log($state.current.name);
+    // console.log($state.current.name);
 
     $transitions.onSuccess({}, trans => {
 
         $state.current.name === 'home' ? (
-            medidaEstandar(),
-            todotrue()
+            esHome(),
+            medidaEstandar()
         ): (
-
-            console.log('estoy en home nivel')
-
+            console.log('No estoy en home')
         )
-
-        // if($state.is('home')){
-        //     medidaEstandar()
-        //     todotrue()
-        // }
-        //
-        // if($state.is('home.nivel')){
-        //
-        //     console.log('estoy en home nivel')
-        //
-        // }
-
-        // else{
-        //     todofalseExcepto($stateParams.id)
-        // }
-
-        // if($state.is('home.nivel')){
-        //     console.log($stateParams)
-        // }
 
     });
 
-    if($state.current.name === 'home.nivel'){
+    var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+    ];
 
-        console.log($stateParams)
-        todofalseExcepto($stateParams.id)
+    // $state.includes('deporte') ? (
+    //     console.log('Estoy en deporte')
+    // ): (
+    //     console.log('No estoy en deporte')
+    // )
+    //
+    // $state.includes('nivel') ? (
+    //     console.log('Estoy en nivel')
+    //
+    // ): (
+    //     console.log('No estoy en nivel')
+    // )
+
+    $state.is('home') ? (
+
+        esHome(),
+        medidaEstandar(),
+        console.log('Estoy en home')
+
+    ): (
+
+        esNivel(),
+        console.log('Estoy en nivel')
+
+    )
+
+    function esHome(){
+
+        Niveles.obtener().then(function(res){
+            $scope.niveles = res.data;
+            todotrue();
+            $scope.loadingniveles = false;
+            $scope.$digest();
+
+        })
+
     }
 
-    medidaEstandar()
+    function esNivel(){
+
+        console.log('Estoy obteniendo el nivel')
+
+        $scope.niveles = []
+
+        Niveles.one($stateParams.id).then(function(res){
+            res.data.activo = true;
+            $scope.niveles.push(res.data)
+            todofalseExcepto(res.data.id)
+            $scope.loadingniveles = false;
+            console.log($scope.niveles)
+            $scope.$digest();
+
+        })
+
+        $scope.medida = {
+            col: 3,
+            row: 2,
+            nivel: true
+        }
+
+    }
+
+    // if($state.current.name === 'home.nivel'){
+    //
+    //     console.log($stateParams)
+    //     todofalseExcepto($stateParams.id)
+    //
+    // }
 
     function medidaEstandar(){
         $scope.medida = {
@@ -57,17 +104,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
         }
     }
 
-    function obtenerNiveles(){
-
-    }
-
-    Niveles.obtener().then(function(res){
-        $scope.niveles = res.data;
-        todotrue();
-        $scope.loadingniveles = false;
-        $scope.$digest();
-
-    })
 
     function todotrue(){
         _.forEach($scope.niveles, function(n, key){
@@ -77,8 +113,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
     }
 
     function todofalseExcepto(nivel){
-
-        console.log('Se ejecuta la funcion ')
 
         let x = 0
 
@@ -108,7 +142,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
     $scope.selecionar = function(nivel){
         if (nivel.id === 93)
         {
-            console.log('Actividad Deportiva"')
             $state.go('home.deporte', {id: nivel.id})
             todofalseExcepto(nivel.id)
         }

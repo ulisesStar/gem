@@ -16,7 +16,7 @@ app.controller('deporteCtrl', function($scope, $rootScope, $state, $stateParams,
     $scope.irAlbum = function(album){
 
 
-        $state.go('home.album', {id: album.id})
+        $state.go('home.deporte.album', {id: album.id})
 
     }
 

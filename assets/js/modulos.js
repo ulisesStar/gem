@@ -1,7 +1,7 @@
 app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 
     $ocLazyLoadProvider.config({
-        debug: true,
+        debug: false,
         modules: [
             {
                 name: 'ozMainHome',

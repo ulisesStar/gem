@@ -237,7 +237,7 @@ app.directive('imagenalbum', function() {
             $scope.cargandoimagen = true;
 
 			Imagenes.one(id).then(res => {
-                
+
 				$scope.imagen = res.data;
 				$scope.cargandoimagen = false;
 				$scope.$digest();

@@ -8,7 +8,7 @@
 		//- 		md-icon backspace
 		.niveles(layout="row" layout-align="center center")
 			md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="loadingniveles" ng-if="loadingniveles")
-			md-grid-list(md-cols="3" md-cols-xs="3" md-row-height="200px" md-row-height-xs="300px" md-row-height-sm="200px" md-row-height-md="200px"  md-gutter="2em" flex="70" flex-md="70" flex-sm="70" flex-xs="100" ng-if="!loadingniveles" ng-class="{ 'seccionHome' : $state.is('home') , 'seccionNivel' : $state.includes('home.nivel')}")
+			md-grid-list(md-cols="3" md-cols-xs="3" md-row-height="200px" md-row-height-xs="110px" md-row-height-sm="200px" md-row-height-md="200px"  md-gutter="2em" flex="70" flex-md="70" flex-sm="70" flex-xs="100" ng-if="!loadingniveles" ng-class="{ 'seccionHome' : $state.is('home') , 'seccionNivel' : $state.includes('home.nivel')}")
 				md-grid-tile(ng-repeat="nivel in niveles" md-colspan="{{medida.col}}" md-rowspan="{{medida.row}}" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'" ng-if="nivel.activo === true")
 					.nivel(layout="row" layout-xs="column" layout-sm="column")
 						.imagen(ng-click="selecionar(nivel)")
