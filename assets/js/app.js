@@ -14,6 +14,16 @@ var app = angular.module('myapp', [
     'md.data.table'
 ]);
 
+app.config(['uiGmapGoogleMapApiProvider', function (uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyAqXo2belQRByZzSEr5MgqzKKIYmGcmoes',
+            v: '3.20', //defaults to latest 3.X anyhow
+            libraries: 'weather,geometry,visualization, places',
+            china: true
+        });
+
+}]);
+
 //TEMAS
 app.config(function($mdThemingProvider, $mdIconProvider) {
     $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('blue').warnPalette('red').backgroundPalette('grey');
