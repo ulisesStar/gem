@@ -50,7 +50,7 @@ header .menu md-menu-bar .md-button {
   height: 100%;
   padding: 13px 10;
   border-radius: 0px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   color: #000;
   margin: 0px;
   border-right: 1px solid #d3d3d3;
@@ -321,7 +321,7 @@ header .menu md-menu-bar .md-button.active {
   }
 }
 .home .home-container .niveles md-grid-list md-grid-tile .nivel .intro .intro-content p {
-  font-size: 20px;
+  font-size: 18px;
 }
 .home .home-container .niveles md-grid-list.seccionHome md-grid-tile.conHover img {
   transform: scale(1.1);
@@ -338,6 +338,12 @@ header .menu md-menu-bar .md-button.active {
   .home .home-container .niveles md-grid-list.seccionNivel md-grid-tile img {
     width: 190px !important;
     height: 230px !important;
+  }
+}
+@media (max-width: 960px) {
+  .home .home-container .niveles md-grid-list.seccionDeporte md-grid-tile img {
+    width: 264px !important;
+    height: 250px !important;
   }
 }
 .home .home-container .siguiente {
@@ -418,6 +424,23 @@ header .menu md-menu-bar .md-button.active {
 .ingles-content section.informacion md-list md-icon {
   color: #0a0e3a;
 }
+.ingles-content section.informacion .formulario {
+  background-color: inherit !important;
+}
+.ingles-content section.informacion .formulario md-card {
+  margin: 0px;
+}
+.ingles-content section.informacion .formulario md-card md-toolbar md-icon {
+  margin: 0 20px;
+}
+.ingles-content section.informacion .formulario form {
+  margin: 0px;
+}
+.ingles-content section.informacion .formulario form .md-button {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
 .conocenos {
   margin-top: 100px;
 }
@@ -467,10 +490,24 @@ header .menu md-menu-bar .md-button.active {
 .conocenos section.infoConocenos p {
   font-size: 18px;
 }
+.conocenos section.infoConocenos md-list {
+  margin-top: 15px;
+}
 .conocenos section.infoConocenos md-list md-list-item {
   height: 23px;
   min-height: 23px;
   font-size: 18px;
+}
+.conocenos section.infoConocenos md-list md-list-item.md-long-text .md-list-item-text p {
+  text-align: justify;
+}
+@media (max-width: 960px) {
+  .conocenos section.infoConocenos md-list {
+    margin-top: 70px;
+  }
+  .conocenos section.infoConocenos md-list .md-list-item-text p {
+    text-align: justify;
+  }
 }
 .inscripciones {
   margin-top: 100px;

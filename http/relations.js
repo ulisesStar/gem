@@ -22,6 +22,9 @@ var contactos = require('./db/modeloContactos')(conector);
 niveles.hasMany(eventos , {foreignKey: 'idNivel'});
 eventos.belongsTo(niveles, {foreignKey: 'idNivel'});
 
+niveles.hasMany(contactos , {foreignKey: 'idNivel'});
+contactos.belongsTo(niveles, {foreignKey: 'idNivel'});
+
 elementos.belongsTo(niveles, {foreignKey: 'idNivel'});
 niveles.hasMany(elementos, {foreignKey: 'idNivel'});
 

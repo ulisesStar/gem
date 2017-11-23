@@ -52,7 +52,7 @@ app.config([
         .state('home', template('/', '/main/home', 'homeCtrl', 'ozMainHome'))
         .state('conocenos',pequenin('/conocenos', '/main/conocenos'))
         .state('inscripciones', template('/inscripciones', '/main/inscripciones', 'inscripcionesCtrl', 'ozMainInscripciones'))
-        .state('ingles',pequenin('/ingles', '/main/ingles'))
+        .state('ingles', template('/ingles', '/main/ingles', 'inglesCtrl', 'ozMainIngles'))
         .state('home.nivel', template('nivel/:id', '/main/nivel', 'nivelCtrl', 'ozMainNivel', { 'id' : null}))
         .state('home.deporte', template('deporte/:id', '/main/deporte', 'deporteCtrl', 'ozMainDeporte', { 'id' : null}))
 

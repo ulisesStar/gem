@@ -140,10 +140,21 @@ app.controller('homeCtrl', function($scope, $rootScope, $transitions, $http, $md
     }
 
     $scope.selecionar = function(nivel){
-        if (nivel.id === 93)
-        {
-            $state.go('home.deporte', {id: nivel.id})
-            todofalseExcepto(nivel.id)
+        console.log(nivel)
+        if(nivel.id === 93 || nivel.id === 94){
+
+            switch (nivel.id) {
+                case 93:
+                    $state.go('home.deporte', {id: nivel.id})
+                    todofalseExcepto(nivel.id)
+                    break;
+                case 94:
+                    $state.go('ingles')
+                    todofalseExcepto(nivel.id)
+                    break;
+                default:
+
+            }
         }
         else
         {

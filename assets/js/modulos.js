@@ -12,6 +12,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 				files: ['js/main/frags/nivel.js']
 			},
             {
+				name: 'ozMainIngles',
+				files: ['js/main/frags/ingles.js']
+			},
+            {
 				name: 'ozMainDeporte',
 				files: ['js/main/frags/deporte.js']
 			},

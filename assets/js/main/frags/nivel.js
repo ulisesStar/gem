@@ -40,12 +40,12 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
     $scope.listo = false;
 
     $scope.nuevoContacto = function(contacto){
+        contacto.idNivel = $stateParams.id;
         Contactos.crear(contacto).then(res =>{
             alertas.mostrarToastEstandar("Mensaje enviado");
             $scope.listo = true;
 			delete $scope.contacto
         })
-
     }
 
 });

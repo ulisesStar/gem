@@ -21,7 +21,6 @@ app.config(['uiGmapGoogleMapApiProvider', function (uiGmapGoogleMapApiProvider) 
             libraries: 'weather,geometry,visualization, places',
             china: true
         });
-
 }]);
 
 //TEMAS

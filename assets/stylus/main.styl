@@ -93,7 +93,7 @@ header
                 height 100%
                 padding 13px 10
                 border-radius 0px
-                text-transform lowercase
+                text-transform capitalize
                 color black
                 margin 0px
                 border-right 1px solid #D3D3D3
@@ -252,7 +252,7 @@ header
                                 margin auto
                                 color white
                                 p
-                                    font-size 20px
+                                    font-size 18px
 
 
                 &.seccionHome
@@ -272,6 +272,12 @@ header
                             img
                                 width 190px !important
                                 height 230px !important
+                &.seccionDeporte
+                    md-grid-tile
+                        @media mobile
+                            img
+                                width 264px !important
+                                height 250px !important
 
 
 
@@ -341,6 +347,19 @@ header
             md-list
                 md-icon
                     color azul
+            .formulario
+                background-color inherit !important
+                md-card
+                    margin 0px
+                    md-toolbar
+                        md-icon
+                            margin 0 20px
+                form
+                    margin 0px
+                    .md-button
+                        width 100%
+                        padding 0px
+                        margin 0px
 
 .conocenos
     margin-top 100px
@@ -389,10 +408,20 @@ header
             p
                 font-size 18px
             md-list
+                margin-top 15px
                 md-list-item
                     height 23px
                     min-height 23px
                     font-size 18px
+                md-list-item.md-long-text
+                    .md-list-item-text
+                        p
+                            text-align justify
+                @media mobile
+                    margin-top 70px
+                    .md-list-item-text
+                        p
+                            text-align justify
 
 .inscripciones
     margin-top 100px

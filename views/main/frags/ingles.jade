@@ -5,33 +5,28 @@
         img(src="img/ingles1.png")
     section.informacion(layout="row" layout-align="center center")
         .informacion-container(flex="70" flex-md="80" flex-sm="90" flex-xs="90" layout="column")
-            .info-content(layout="column" flex)
-                p Si como padre de familia has observado que tu hijo tiene algunas de las siguientes de ciencias:
-                p Mala ortografía, no sabe realizar operaciones aritméticas que otros compañeros de su edad si pueden. Si ha tenido una baja de rendimiento en algunas materias o batallan con la asimilación de los conceptos que se aplican en clase. Es momento de poner atención y brindarles un apoyo adicional que les permita regularizarse a la par de sus compañeros.
-            md-list    
-                p Regularizamos alumnos en cursos individuales o grupales de acuerdo a la asignatura que necesiten. Apoyo de tareas, para las diferentes materias por las tardes posterior a sus clases. Cursos de preparación para temas, materias o exámenes específicos. Los temas y las opciones pueden ser varias de acuerdo a las necesidades del estudiante:
-                md-list-item
-                    md-icon chevron_right
-                    p Asesoría y Regularización.
-                md-list-item
-                    md-icon chevron_right
-                    p Refuerzo del idioma Inglés
-                md-list-item
-                    md-icon chevron_right
-                    p Orientación Vocacional.
-                md-list-item
-                    md-icon chevron_right
-                    p Apoyo en Tareas.
-                md-list-item
-                    md-icon chevron_right
-                    p Atención Psicológica.
-                md-list-item
-                    md-icon chevron_right
-                    p Preparación para exámenes
-                md-list-item
-                    md-icon chevron_right
-                    p Conferencias.
-                p Este servicio esta abierto para alumnos de todas las instituciones, no necesariamente tiene que ser alumno de GEM,
-                p Lic. Alejandro Virgen
-                strong COORDINADOR DE ÁREA
-                p INFORMES (833) 215 13 98 EXT. 121
+            .info-content(layout="row")   
+                .contenido(flex="60" flex-xs="100")
+                    .descripcion-content(ng-bind-html="nivel.descripcion")    
+                .formulario(flex="40" flex-xs="100" hide-xs)
+                    md-card(style="margin-left: 30px")
+                        md-toolbar(style="background-color: {{nivel.colorbajo}}; color:white;")
+                            .md-toolbar-tools
+                                md-icon markunread_mailbox
+                                h1 Contáctanos
+                        form(ng-submit="nuevoContacto(contacto)" ng-hide="listo")
+                            .md-padding(layout="column")
+                                md-input-container(flex)
+                                    label Nombre
+                                    input(ng-model="contacto.nombre" required)
+                                md-input-container(flex required)
+                                    label E-mail
+                                    input(ng-model="contacto.email" required)
+                                md-input-container(flex)
+                                    label Mensaje
+                                    textarea(ng-model="contacto.mensaje" md-maxlength="800" rows="5" required)
+                            md-button(type="submit" style="background-color: {{nivel.colorbajo}}; color:white;")
+                                | Enviar
+                        div(ng-show="listo")
+                            md-card
+                                h1(style="text-align: center") Muchas Gracias, muy pronto nos comunicaremos contigo.

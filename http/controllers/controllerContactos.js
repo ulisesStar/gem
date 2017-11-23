@@ -1,5 +1,6 @@
 var db = require('../relations');
 var contactos = db.contactos;
+var niveles = db.niveles;
 
 var ex = module.exports = {};
 
@@ -48,7 +49,13 @@ ex.read = function(req, res, next) {
             res.status(200).jsonp(result);
         });
     } else {
-        contactos.findAll().then(function(result) {
+        contactos.findAll({
+            include:[
+                {
+                    model:niveles
+                }
+            ]
+        }).then(function(result) {
             res.status(200).jsonp(result);
         });
     }

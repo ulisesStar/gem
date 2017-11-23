@@ -18,12 +18,16 @@ md-card
                     th(md-column md-numeric)
                         md-icon border_color
                         | Mensaje
+                    th(md-column md-numeric)
+                        md-icon school
+                        | Nivel de estudios
             tbody(md-body)
                 tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="contacto in contactos")
                     td(md-cell) {{contacto.createdAt | date:'medium' }}
                     td(md-cell) {{contacto.nombre}}
                     td(md-cell) {{contacto.email}}
                     td(md-cell) {{contacto.mensaje}}
+                    td(md-cell) {{contacto.nivele.nombre}}
                     td(md-cell)
                         //- md-button(ng-click="CotizacionDialog(cotizacion.id)" md-colors="{background : 'green'}")
                         //-     md-icon visibility
