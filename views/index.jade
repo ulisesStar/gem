@@ -6,6 +6,14 @@ html(ng-app="myapp")
 		//- meta(name="google-site-verification" content="8qPvOwWAgLkAr8KHml_A2H-FxCfviHA5j9YmLovT618")
 		meta(name="keywords" content="Bachillerato, Primaria, GEM, GRUPO EDUCATIVO MADERO")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		
+		
+		script.
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-TXDVBS2');
 
 		//- Angular
 		script(type="text/javascript", src="bower_components/angular/angular.min.js")
@@ -68,6 +76,11 @@ html(ng-app="myapp")
 		//- Angular material
 		script(type="text/javascript", src="bower_components/angular-material/angular-material.min.js")
 		script(type="text/javascript", src="bower_components/angular-material-expansion-panel/dist/md-expansion-panel.js")
+		
+		
+		//- Google Analytics
+		script(type="text/javascript", src="bower_components/angulartics/dist/angulartics.min.js")
+		script(type="text/javascript", src="bower_components/angulartics/dist/angulartics-gtm.min.js")
 		
 		//- Croppie
 		script(type="text/javascript", src="bower_components/croppie/croppie.min.js")

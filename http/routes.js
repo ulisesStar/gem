@@ -43,8 +43,13 @@ router.get("/admin", function(req, res) {
     res.render("admin/layout");
 })
 
-router.all('/:action', function(req, res){
-})
+router.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+});
+
+// router.all('/:action', function(req, res){
+// })
 
 // router.get("/:url", function(req, res) {
 //     var page = req.params.url

@@ -21,6 +21,7 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, mdDialog, AuthSe
         mdDialog.mostrardialog('registro', 'mainCtrl', $scope.customFullscreen);
     }
 
+
     $scope.botones = [{
         title: 'Home',
         icon: 'whatshot',

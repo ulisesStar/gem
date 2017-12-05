@@ -11,7 +11,9 @@ var app = angular.module('myapp', [
     'material.components.expansionPanels',
     'textAngular',
     'angular-timeline',
-    'md.data.table'
+    'md.data.table',
+    'angulartics',
+    'angulartics.google.tagmanager'
 ]);
 
 app.config(['uiGmapGoogleMapApiProvider', function (uiGmapGoogleMapApiProvider) {
@@ -24,11 +26,14 @@ app.config(['uiGmapGoogleMapApiProvider', function (uiGmapGoogleMapApiProvider) 
 }]);
 
 //TEMAS
-app.config(function($mdThemingProvider, $mdIconProvider) {
-    $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('blue').warnPalette('red').backgroundPalette('grey');
+app.config(function($mdThemingProvider, $mdIconProvider, $analyticsProvider) {
 
-    $mdIconProvider
-        .icon('fb', 'icons/fb.svg');
+    $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('blue').warnPalette('red').backgroundPalette('grey');
+    $mdIconProvider.icon('fb', 'icons/fb.svg');
+    $analyticsProvider.firstPageview(true);
+    $analyticsProvider.withAutoBase(true);
+    $analyticsProvider.virtualPageviews(true);
+
 });
 
 app.run(function($rootScope, $transitions, $timeout) {

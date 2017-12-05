@@ -1,6 +1,6 @@
 var app = angular.module('myapp');
 
-app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, alertas, $sce, $mdExpansionPanel, $compile, Contactos) {
+app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, Niveles, alertas, $sce, $mdExpansionPanel, $compile, Contactos, $analytics) {
 
     console.log($stateParams)
 
@@ -33,6 +33,11 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
       instance.expand();
     });
 
+
+    $scope.collapse = function(elemento){
+        $analytics.eventTrack($scope.nivel.nombre, {  category: 'collapse', label: elemento.nombre });
+    }
+
     $('li').html($compile('<div ng-attr-tooltip="test">Cancel</div>')($scope))
 
     // $("li").html($compile("<div ng-attr-tooltip="test">Cancel</div>")(scope));
@@ -43,6 +48,8 @@ app.controller('nivelCtrl', function($scope, $rootScope, $state, $stateParams, N
         contacto.idNivel = $stateParams.id;
         Contactos.crear(contacto).then(res =>{
             alertas.mostrarToastEstandar("Mensaje enviado");
+
+            $analytics.eventTrack($scope.nivel.nombre, {  category: 'prospecto', label: 'prospecto' });
             $scope.listo = true;
 			delete $scope.contacto
         })
