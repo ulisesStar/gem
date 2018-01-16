@@ -1,0 +1,5 @@
+08/dic/17 Cesar.- Se cambio el nombre del responsable de ingles, Se corrigio la falta de ortogrfia
+		de inscripciones, se cambiaron los numero de telefono, se hizo que el boton de
+		facebook que esta en el footer mandara a la pagina oficial de GEM, se acomodaron
+		las fotos deportivas
+15-01-18 Monica.- Anexo de mailgun-js para correos.

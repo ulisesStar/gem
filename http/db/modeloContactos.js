@@ -7,7 +7,8 @@ var ex = function(conector) {
         id:{ type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
         nombre: Sequelize.STRING,
         email: Sequelize.STRING,
-        mensaje: Sequelize.TEXT
+        mensaje: Sequelize.TEXT,
+        telefono: Sequelize.STRING
     })
 
     return Contactos;

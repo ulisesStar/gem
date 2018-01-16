@@ -5,7 +5,7 @@ app.controller('inglesCtrl', function($scope, $rootScope, $state, $stateParams, 
     $scope.listo = false;
     $scope.nuevoContacto = function(contacto){
         contacto.idNivel = 94;
-        Contactos.crear(contacto).then(res =>{
+        Contactos.crear(contacto).then(res => {
             alertas.mostrarToastEstandar("Mensaje enviado");
             $scope.listo = true;
 			delete $scope.contacto
