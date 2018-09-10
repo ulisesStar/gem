@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('gem', 'root', 'root', {
-    host: '35.193.117.26',
+var sequelize = new Sequelize('gem', 'root', 'simple', {
+    host: '35.237.80.12',
     dialect: 'mysql',
-    port: '4306',
+    port: '3306',
     pool: {
         max: 5,
         min: 0,

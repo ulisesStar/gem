@@ -15,8 +15,6 @@ var ex = module.exports = {};
 
     contactos.create(data).then(function(result){
 
-
-
             var mail = {
                 from: 'Informes <postmaster@grupoeducativomadero.mx>',
                 subject: 'Esta persona te quiere contactar',
