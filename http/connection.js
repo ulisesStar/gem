@@ -5,9 +5,9 @@ var Sequelize = require('sequelize');
 
 
 var sequelize = new Sequelize('gem', 'root', '1234', {
-    host: '127.0.0.1',
+    host: '35.238.229.92',
     dialect: 'mysql',
-    port: '8889',
+    port: '3306',
     pool: {
         max: 5,
         min: 0,
